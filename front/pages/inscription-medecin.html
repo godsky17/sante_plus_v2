@@ -1,0 +1,378 @@
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+  <link
+    rel="stylesheet"
+    as="style"
+    onload="this.rel='stylesheet'"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+  />
+  <title>Stitch Design</title>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body>
+  <div
+    class="relative flex size-full min-h-screen flex-col bg-gray-50 group/design-root overflow-x-hidden"
+    style="--select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(93,116,137)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e'); font-family: Manrope, &quot;Noto Sans&quot;, sans-serif;"
+  >
+    <div class="layout-container flex h-full grow flex-col">
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#eaedf1] px-10 py-3"
+      >
+        <div class="flex items-center gap-4 text-[#111518]">
+          <div class="size-4">
+            <svg
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-[#111518] text-lg font-bold leading-tight tracking-[-0.015em]">
+            Sante +
+          </h2>
+        </div>
+      </header>
+
+      <div class="px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+                        <div class="@[480px]:px-4 @[480px]:py-3">
+                            <div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-gray-50 @[480px]:rounded-xl min-h-[218px]"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDo4n23bEFeqId6y8mTlvcy4QKSnXyF24yqbAFBFFgl9inDtHxs_gCNewpapaMqU6VU431wfHIOPlVNmfEQiX8iSjFwwSKD_keahczAsP0p6hzBZPnCyFqxHt4sNiWBJsP0Y7YgCPaJY0HjksY7NmW_Ea7KyEfidOiThQhto7VtTKXSZ73ohqkkAIek_BxJGJ86IMd4iREZWVOilgPdwdXjrPhwzAFWC2nOxBsbuAoX5Xv7BROdpfFDWqnTkwm9BuaSB20U_qmwXtM");'>
+                            </div>
+                        </div>
+                    </div>
+                    <h2
+                        class="text-[#111518] tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">
+                        S'inscrire en tant que médecin</h2>
+          <!-- Form Start -->
+          <form id="medecin-form" novalidate>
+            <!-- Step Indicators -->
+            <div class="flex flex-col gap-3 p-4">
+              <div class="flex gap-6 justify-between">
+                <p
+                  id="step-indicator"
+                  class="text-[#111518] text-base font-medium leading-normal"
+                >
+                  Étape 1 sur 2
+                </p>
+              </div>
+              <div class="rounded bg-[#d5dce2]">
+                <div
+                  id="progress-bar"
+                  class="h-2 rounded bg-[#c5d9eb]"
+                  style="width: 50%;"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Step 1 -->
+            <div id="step-1">
+
+              <div class="flex flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    name="prenom"
+                    placeholder="Prénom"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal"
+                    type="text"
+                    required
+                  />
+                </label>
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    name="nom"
+                    placeholder="Nom"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal"
+                    type="text"
+                    required
+                  />
+                </label>
+              </div>
+              <div class="flex flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <select
+                    name="specialite"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 bg-[image:--select-button-svg] placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal"
+                    required
+                  >
+                    <option value="" disabled selected>Spécialité</option>
+                    <option value="cardiologie">Cardiologie</option>
+                    <option value="dermatologie">Dermatologie</option>
+                    <option value="pédiatrie">Pédiatrie</option>
+                    <option value="neurologie">Neurologie</option>
+                    <option value="orthopédie">Orthopédie</option>
+                  </select>
+                </label>
+
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    name="telephone"
+                    placeholder="Numéro de téléphone"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal"
+                    type="text"
+                    required
+                  />
+                </label>
+              </div>
+              <div class="flex flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    name="email"
+                    placeholder="Email"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal"
+                    type="email"
+                    required
+                  />
+                </label>
+
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    name="adresse"
+                    placeholder="Adresse du cabinet"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal"
+                    type="text"
+                    required
+                  />
+                </label>
+              </div>
+              <div class="flex flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    name="mot_de_passe"
+                    placeholder="Mot de passe"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal"
+                    type="password"
+                    required
+                  />
+                </label>
+
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    name="confirmer_mot_de_passe"
+                    placeholder="Confirmer mot de passe"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal"
+                    type="password"
+                    required
+                  />
+                </label>
+              </div>
+              <div class="flex flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <textarea
+                    name="biographie"
+                    placeholder="Biographie"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none min-h-36 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal"
+                  ></textarea>
+                </label>
+              </div>
+              <div class="flex px-4 py-3 justify-end">
+                <button
+                  type="button"
+                  id="btn-suivant"
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-[#c5d9eb] text-[#111518] text-base font-bold leading-normal tracking-[0.015em]"
+                >
+                  Suivant
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2 (hidden au départ) -->
+            <div id="step-2" class="hidden">
+              <h3
+                class="text-[#0d151b] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+              >
+                Télécharger des documents
+              </h3>
+
+              <!-- ID Upload Section -->
+              <div class="flex flex-col p-4">
+                <div
+                  class="flex flex-col items-center gap-6 rounded-lg border-2 border-dashed border-[#cfdce7] px-6 py-14"
+                >
+                  <div class="flex max-w-[480px] flex-col items-center gap-2">
+                    <p
+                      class="text-[#0d151b] text-lg font-bold leading-tight tracking-[-0.015em] max-w-[480px] text-center"
+                    >
+                      Upload ID
+                    </p>
+                    <p
+                      class="text-[#0d151b] text-sm font-normal leading-normal max-w-[480px] text-center"
+                    >
+                      Glisser-déposer ou parcourir pour télécharger votre identifiant
+                    </p>
+                    <p
+                      id="id-file-name"
+                      class="text-[#0d151b] text-sm font-normal leading-normal max-w-[480px] text-center hidden"
+                    ></p>
+                  </div>
+                  <label
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#e7edf3] text-[#0d151b] text-sm font-bold leading-normal tracking-[0.015em]"
+                  >
+                    <span class="truncate">Télécharger</span>
+                    <input
+                      name="upload_id"
+                      type="file"
+                      id="id-upload"
+                      class="hidden"
+                      accept="image/*,.pdf"
+                      onchange="displayFileName('id-upload', 'id-file-name')"
+                      required
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <!-- Diplomas Upload Section -->
+              <div class="flex flex-col p-4">
+                <div
+                  class="flex flex-col items-center gap-6 rounded-lg border-2 border-dashed border-[#cfdce7] px-6 py-14"
+                >
+                  <div class="flex max-w-[480px] flex-col items-center gap-2">
+                    <p
+                      class="text-[#0d151b] text-lg font-bold leading-tight tracking-[-0.015em] max-w-[480px] text-center"
+                    >
+                      Télécharger les diplômes
+                    </p>
+                    <p
+                      class="text-[#0d151b] text-sm font-normal leading-normal max-w-[480px] text-center"
+                    >
+                      Glisser-déposer ou parcourir pour télécharger vos diplômes
+                    </p>
+                    <p
+                      id="diploma-file-name"
+                      class="text-[#0d151b] text-sm font-normal leading-normal max-w-[480px] text-center hidden"
+                    ></p>
+                  </div>
+                  <label
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#e7edf3] text-[#0d151b] text-sm font-bold leading-normal tracking-[0.015em]"
+                  >
+                    <span class="truncate">Télécharger</span>
+                    <input
+                      name="upload_diplome"
+                      type="file"
+                      id="diploma-upload"
+                      class="hidden"
+                      accept="image/*,.pdf"
+                      onchange="displayFileName('diploma-upload', 'diploma-file-name')"
+                      required
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <!-- License Upload Section -->
+              <div class="flex flex-col p-4">
+                <div
+                  class="flex flex-col items-center gap-6 rounded-lg border-2 border-dashed border-[#cfdce7] px-6 py-14"
+                >
+                  <div class="flex max-w-[480px] flex-col items-center gap-2">
+                    <p
+                      class="text-[#0d151b] text-lg font-bold leading-tight tracking-[-0.015em] max-w-[480px] text-center"
+                    >
+                      Télécharger la licence professionnelle
+                    </p>
+                    <p
+                      class="text-[#0d151b] text-sm font-normal leading-normal max-w-[480px] text-center"
+                    >
+                      Glisser-déposer ou parcourir pour télécharger votre licence professionnelle
+                    </p>
+                    <p
+                      id="license-file-name"
+                      class="text-[#0d151b] text-sm font-normal leading-normal max-w-[480px] text-center hidden"
+                    ></p>
+                  </div>
+                  <label
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#e7edf3] text-[#0d151b] text-sm font-bold leading-normal tracking-[0.015em]"
+                  >
+                    <span class="truncate">Télécharger</span>
+                    <input
+                      name="upload_licence"
+                      type="file"
+                      id="license-upload"
+                      class="hidden"
+                      accept="image/*,.pdf"
+                      onchange="displayFileName('license-upload', 'license-file-name')"
+                      required
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div class="flex justify-between px-4 py-3">
+                <button
+                  type="button"
+                  id="btn-retour"
+                  class="w-full max-w-[250px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-[#c5d9eb] text-[#111518] text-base font-bold leading-normal tracking-[0.015em] flex"
+                >
+                  Retour
+                </button>
+
+                <button
+                  type="submit"
+                  id="btn-inscrire"
+                  class="w-full max-w-[250px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-[#1383eb] text-slate-50 text-base font-bold leading-normal tracking-[0.015em] flex"
+                >
+                  S'inscrire
+                </button>
+              </div>
+            </div>
+          </form>
+          <!-- Form End -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Affiche le nom du fichier sélectionné
+  function displayFileName(inputId, displayId) {
+    const input = document.getElementById(inputId);
+    const display = document.getElementById(displayId);
+    if (input.files.length > 0) {
+      display.textContent = `Selected: ${input.files[0].name}`;
+      display.classList.remove("hidden");
+    } else {
+      display.textContent = "";
+      display.classList.add("hidden");
+    }
+  }
+
+  // Gère la navigation entre étapes
+  const btnSuivant = document.getElementById("btn-suivant");
+  const btnRetour = document.getElementById("btn-retour");
+  const step1 = document.getElementById("step-1");
+  const step2 = document.getElementById("step-2");
+  const stepIndicator = document.getElementById("step-indicator");
+  const progressBar = document.getElementById("progress-bar");
+  const form = document.getElementById("medecin-form");
+
+  btnSuivant.addEventListener("click", () => {
+    step1.classList.add("hidden");
+    step2.classList.remove("hidden");
+    stepIndicator.textContent = "Étape 2 sur 2";
+    progressBar.style.width = "100%";
+  });
+
+  btnRetour.addEventListener("click", () => {
+    step2.classList.add("hidden");
+    step1.classList.remove("hidden");
+    stepIndicator.textContent = "Étape 1 sur 2";
+    progressBar.style.width = "50%";
+  });
+
+  // Soumission du formulaire (simple, pas encore de traitement serveur)
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Formulaire prêt à être soumis !");
+  });
+</script>
+
+</body>
+</html>
