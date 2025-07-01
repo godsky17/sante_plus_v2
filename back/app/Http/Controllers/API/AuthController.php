@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use App\Notifications\UserRegistered;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -70,7 +72,7 @@ class AuthController extends Controller
                 'nom' => $data['nom'],
                 'prenom' => $data['prenom'],
                 'email' => $data['email'],
-                'mot_de_passe' => $data['mot_de_passe'],
+                'mot_de_passe' =>  Hash::make($data['mot_de_passe']),
                 'contact' => $data['contact'],
                 'adresse' => $data['adresse'],
                 'genre' => $data['genre'],
@@ -83,6 +85,8 @@ class AuthController extends Controller
             ]);
 
             $patient->save();
+            $patient->notify(new UserRegistered($patient));
+            $patient->sendEmailVerificationNotification();
 
             return response()->json([
                 'status' => true,
@@ -118,7 +122,7 @@ class AuthController extends Controller
                 'nom' => $data['nom'],
                 'prenom' => $data['prenom'],
                 'email' => $data['email'],
-                'mot_de_passe' => $data['mot_de_passe'],
+                'mot_de_passe' =>  Hash::make($data['mot_de_passe']),
                 'contact' => $data['contact'],
                 'adresse' => $data['adresse'],
                 'genre' => $data['genre'],
@@ -137,6 +141,8 @@ class AuthController extends Controller
             ]);
 
             $medecin->save();
+            $medecin->notify(new UserRegistered($medecin));
+            $medecin->sendEmailVerificationNotification();
 
             return response()->json([
                 'status' => true,
@@ -174,7 +180,7 @@ class AuthController extends Controller
                 'nom' => $data['nom'],
                 'prenom' => $data['prenom'],
                 'email' => $data['email'],
-                'mot_de_passe' => $data['mot_de_passe'],
+                'mot_de_passe' =>  Hash::make($data['mot_de_passe']),
                 'contact' => $data['contact'],
                 'adresse' => $data['adresse'],
                 'genre' => $data['genre'],
@@ -193,6 +199,8 @@ class AuthController extends Controller
             ]);
 
             $medecin->save();
+            $medecin->notify(new UserRegistered($medecin));
+            $medecin->sendEmailVerificationNotification();
 
             return response()->json([
                 'status' => true,
@@ -258,6 +266,8 @@ class AuthController extends Controller
             ]);
 
             $admin->save();
+            $admin->notify(new UserRegistered($admin));
+            $admin->sendEmailVerificationNotification();
 
             return response()->json([
                 'status' => true,
@@ -278,4 +288,111 @@ class AuthController extends Controller
             ], 500);
         }
     }
+
+    public function login(Request $request)
+    {
+
+
+        // Validation avec Validator pour gérer les erreurs
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'mot_de_passe' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            // Renvoie les erreurs de validation en JSON
+            return response()->json([
+                'status' => false,
+                'message' => 'Données invalides.',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        try {
+            $user = User::where('email', $request->email)->first();
+
+            if (!$user) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Utilisateur non trouvé.',
+                ], 404);
+            }
+
+            if (!Hash::check($request->mot_de_passe, $user->mot_de_passe)) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Mot de passe incorrect.',
+                ], 401);
+            }
+
+            if (empty($user->email_verified_at)) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Email non vérifié. Veuillez vérifier votre boîte mail.',
+                ], 403);
+            }
+
+            $token = hash('sha256', \Str::random(60));
+            $user->api_token = $token;
+            $user->save();
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Connexion réussie.',
+                'token_type' => 'Bearer',
+                'access_token' => $token,
+                'user' => $user,
+            ]);
+        } catch (\Exception $e) {
+            // Log l'erreur pour debug serveur
+            \Log::error('Erreur login : '.$e->getMessage());
+
+            return response()->json([
+                'status' => false,
+                'message' => 'Une erreur interne est survenue, veuillez réessayer plus tard.',
+            ], 500);
+        }
+    }
+
+    public function logout(Request $request)
+{
+    try {
+        // Authentifier l'utilisateur via api_token
+        $token = $request->bearerToken();
+
+        if (!$token) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Token non fourni.',
+            ], 401);
+        }
+
+        // Trouver l'utilisateur via le token
+        $user = \App\Models\User::where('api_token', $token)->first();
+
+        if (!$user) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Utilisateur non authentifié.',
+            ], 401);
+        }
+
+        // Invalider le token (supprimer ou réinitialiser)
+        $user->api_token = null;
+        $user->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Déconnexion réussie.',
+        ]);
+    } catch (\Exception $e) {
+        \Log::error('Erreur lors de la déconnexion : ' . $e->getMessage());
+
+        return response()->json([
+            'status' => false,
+            'message' => 'Une erreur est survenue lors de la déconnexion.',
+        ], 500);
+    }
+}
+
 }

@@ -9,9 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
 use MongoDB\Laravel\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
-class User extends Model implements AuthenticatableContract
+class User extends Model implements AuthenticatableContract, MustVerifyEmail
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, Authenticatable, HasApiTokens;
@@ -68,6 +70,7 @@ class User extends Model implements AuthenticatableContract
         'niveau_acces' => 'int',
         'id_hopital' => 'string',
         'planning_id' => 'string',
+        'email_verified_at' => 'datetime',
     ];
 
     public function getAuthPassword()
@@ -83,5 +86,26 @@ class User extends Model implements AuthenticatableContract
     public function planning()
     {
         return $this->belongsTo(Planning::class, 'planning_id', '_id');
+    }
+
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new VerifyEmail);
+    }
+
+     public function hasVerifiedEmail()
+    {
+        return !is_null($this->email_verified_at);
+    }
+
+    public function markEmailAsVerified()
+    {
+        $this->email_verified_at = now();
+        $this->save();
+    }
+
+    public function getEmailForVerification()
+    {
+        return $this->email;
     }
 }
