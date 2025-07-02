@@ -4,8 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Models\User;
-use App\Http\Controllers\Api\RdvController;
-use App\Http\Controllers\Api\PlanningController;
+use App\Http\Controllers\API\RdvController;
+use App\Http\Controllers\API\PlanningController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -51,10 +51,10 @@ Route::get('/email/verify/{id}/{hash}', function ($id, $hash, Request $request) 
 Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::prefix('rdv')->group(function () {
-    Route::post('/create', [RdvController::class, 'store']);               // Création d’un rendez-vous
+    Route::post('/create', [RdvController::class, 'store']);        // Création d’un rendez-vous
     Route::get('/', [RdvController::class, 'index']);                // Liste des rendez-vous
     Route::get('/{id}', [RdvController::class, 'show']);            // Détail d’un rendez-vous
-    Route::put('/{id}/modifier', [RdvController::class, 'modifier']); // Modifier la date/heure
+    Route::put('/{id}/modifier', [RdvController::class, 'modifierDateHeure']); // Modifier la date/heure
     Route::put('/{id}/reporter', [RdvController::class, 'reporter']); // Reporter à une nouvelle date
     Route::put('/{id}/annuler', [RdvController::class, 'annuler']);   // Annuler le rendez-vous
 });

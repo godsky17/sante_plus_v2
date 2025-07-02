@@ -35,11 +35,20 @@ class RdvController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'id_patient' => 'required|string',
+                'id_patient' => 'required|string|exists:users,_id',
                 'id_medecin' => 'required|string',
                 'date_heure' => 'required|date',
                 'type_consultation' => 'required|in:Présentiel,Téléconsultation',
                 'motif' => 'required|string',
+            ],  [ // ← ici les messages personnalisés
+                'id_patient.required' => 'Le champ patient est obligatoire.',
+                'id_patient.exists' => 'Le patient sélectionné est introuvable.',
+                'id_medecin.required' => 'Le champ médecin est requis.',
+                'date_heure.required' => 'La date et l\'heure sont obligatoires.',
+                'date_heure.date' => 'Le format de la date/heure est invalide.',
+                'type_consultation.required' => 'Le type de consultation est requis.',
+                'type_consultation.in' => 'Le type de consultation doit être Présentiel ou Téléconsultation.',
+                'motif.required' => 'Le motif de la consultation est requis.',
             ]);
 
             if ($validator->fails()) {
@@ -62,16 +71,28 @@ class RdvController extends Controller
         }
     }
 
-    public function modifierDateHeure(Request $request, RendezVous $rdv)
+    public function modifierDateHeure(Request $request, RendezVous $id)
     {
         try {
 
-            $request->validate([
+            $validator = Validator::make($request->all(),[
                 'nouvelle_date' => 'required|date',
+            ], [
+                'nouvelle_date.required' => 'Le champ date est obligatoire.',
+                'nouvelle_date.date' => 'Le champ date doit être de type date.',
+
             ]);
 
-            $rdv->date_heure = $request->nouvelle_date;
-            $rdv->save();
+            if($validator->fails()){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Champ(s) invalide',
+                    'errors' => $validator->errors()
+                ], 422);
+            }
+
+            $id->date_heure = $request->nouvelle_date;
+            $id->save();
 
             return response()->json(['message' => 'Date et heure mises à jour.']);
         } catch (\Exception $e) {
@@ -83,13 +104,26 @@ class RdvController extends Controller
     {
         try {
 
-            $request->validate([
+           $validator = Validator::make($request->all(),[
                 'nouvelle_date' => 'required|date',
+            ], [
+                'nouvelle_date.required' => 'Le champ date est obligatoire.',
+                'nouvelle_date.date' => 'Le champ date doit être de type date.',
+
             ]);
-            $rdv = RendezVous::findOrFail($id);
-            $rdv->date_heure = $request->nouvelle_date;
-            $rdv->statut = 'Reporté';
-            $rdv->save();
+
+            if($validator->fails()){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Champ(s) invalide',
+                    'errors' => $validator->errors()
+                ], 422);
+            }
+
+            $id = RendezVous::findOrFail($id);
+            $id->date_heure = $request->nouvelle_date;
+            $id->statut = 'Reporté';
+            $id->save();
 
             return response()->json(['message' => 'Rendez-vous reporté avec succès.']);
         } catch (\Exception $e) {
