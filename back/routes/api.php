@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\PatientController;
 use App\Models\User;
 use App\Http\Controllers\API\RdvController;
 use App\Http\Controllers\API\PlanningController;
@@ -20,7 +21,7 @@ Route::post('/register-patient', [AuthController::class, 'registerPatient']);
 Route::post('/register-hopital', [AuthController::class, 'registerHopital']);
 Route::post('/register-medecin-affilie', [AuthController::class, 'registerMedecinAffilie']);
 Route::post('/register-medecin-independant', [AuthController::class, 'registerMedecinInde']);
- 
+
 // verification mail
 Route::get('/email/verify/{id}/{hash}', function ($id, $hash, Request $request) {
     $user = User::find($id);
@@ -64,4 +65,11 @@ Route::prefix('planning')->group(function () {
     Route::post('{planningId}/ajouter-creneau', [PlanningController::class, 'ajouterCreneau']);
     Route::post('{planningId}/retirer-creneau', [PlanningController::class, 'retirerCreneau']);
     Route::get('{planningId}/verifier-disponibilite', [PlanningController::class, 'verifierDisponibilite']);
+});
+
+Route::prefix('patient')->group(function () {
+    Route::get('/list', [PatientController::class, 'list']);
+    Route::get('{patient}/show', [PatientController::class, 'show']);
+    Route::put('{patient}/update', [PatientController::class, 'update']);
+    Route::delete('/delete', [PatientController::class, 'deleteAccount'])->middleware('auth.token');
 });

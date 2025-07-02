@@ -48,11 +48,10 @@ class AuthController extends Controller
                         'name' => $user->name,
                         'email' => $user->email,
                     ],
-                    'access_token' => $user->api_token,
+                    'api_token' => $user->api_token,
                     'token_type' => 'Bearer',
                 ],
             ], 201);
-
         } catch (\Exception $e) {
             Log::error('Erreur inscription utilisateur : ' . $e->getMessage());
 
@@ -99,12 +98,12 @@ class AuthController extends Controller
                         'photo_profil' => $patient->photo_profil,
                         'email' => $patient->email,
                     ],
-                    'access_token' => $patient->api_token,
+                    'api_token' => $patient->api_token,
                     'token_type' => 'Bearer',
                 ],
             ], 201);
         } catch (\Exception $e) {
-           Log::error('Erreur inscription utilisateur : ' . $e->getMessage());
+            Log::error('Erreur inscription utilisateur : ' . $e->getMessage());
 
             return response()->json([
                 'status' => false,
@@ -157,12 +156,12 @@ class AuthController extends Controller
                         'id_hopital' => $medecin->id_hopital,
                         'email' => $medecin->email,
                     ],
-                    'access_token' => $medecin->api_token,
+                    'api_token' => $medecin->api_token,
                     'token_type' => 'Bearer',
                 ],
             ], 201);
         } catch (\Exception $e) {
-           Log::error('Erreur inscription utilisateur : ' . $e->getMessage());
+            Log::error('Erreur inscription utilisateur : ' . $e->getMessage());
 
             return response()->json([
                 'status' => false,
@@ -216,12 +215,12 @@ class AuthController extends Controller
                         'coordonnees' => $medecin->coordonnees,
                         'email' => $medecin->email,
                     ],
-                    'access_token' => $medecin->api_token,
+                    'api_token' => $medecin->api_token,
                     'token_type' => 'Bearer',
                 ],
             ], 201);
         } catch (\Exception $e) {
-           Log::error('Erreur inscription utilisateur : ' . $e->getMessage());
+            Log::error('Erreur inscription utilisateur : ' . $e->getMessage());
 
             return response()->json([
                 'status' => false,
@@ -340,12 +339,12 @@ class AuthController extends Controller
                 'status' => true,
                 'message' => 'Connexion réussie.',
                 'token_type' => 'Bearer',
-                'access_token' => $token,
+                'api_token' => $token,
                 'user' => $user,
             ]);
         } catch (\Exception $e) {
             // Log l'erreur pour debug serveur
-            \Log::error('Erreur login : '.$e->getMessage());
+            \Log::error('Erreur login : ' . $e->getMessage());
 
             return response()->json([
                 'status' => false,
@@ -355,44 +354,43 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request)
-{
-    try {
-        // Authentifier l'utilisateur via api_token
-        $token = $request->bearerToken();
+    {
+        try {
+            // Authentifier l'utilisateur via api_token
+            $token = $request->bearerToken();
 
-        if (!$token) {
+            if (!$token) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Token non fourni.',
+                ], 401);
+            }
+
+            // Trouver l'utilisateur via le token
+            $user = \App\Models\User::where('api_token', $token)->first();
+
+            if (!$user) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Utilisateur non authentifié.',
+                ], 401);
+            }
+
+            // Invalider le token (supprimer ou réinitialiser)
+            $user->api_token = null;
+            $user->save();
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Déconnexion réussie.',
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Erreur lors de la déconnexion : ' . $e->getMessage());
+
             return response()->json([
                 'status' => false,
-                'message' => 'Token non fourni.',
-            ], 401);
+                'message' => 'Une erreur est survenue lors de la déconnexion.',
+            ], 500);
         }
-
-        // Trouver l'utilisateur via le token
-        $user = \App\Models\User::where('api_token', $token)->first();
-
-        if (!$user) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Utilisateur non authentifié.',
-            ], 401);
-        }
-
-        // Invalider le token (supprimer ou réinitialiser)
-        $user->api_token = null;
-        $user->save();
-
-        return response()->json([
-            'status' => true,
-            'message' => 'Déconnexion réussie.',
-        ]);
-    } catch (\Exception $e) {
-        \Log::error('Erreur lors de la déconnexion : ' . $e->getMessage());
-
-        return response()->json([
-            'status' => false,
-            'message' => 'Une erreur est survenue lors de la déconnexion.',
-        ], 500);
     }
-}
-
 }
