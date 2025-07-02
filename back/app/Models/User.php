@@ -93,7 +93,7 @@ class User extends Model implements AuthenticatableContract, MustVerifyEmail
         $this->notify(new VerifyEmail);
     }
 
-     public function hasVerifiedEmail()
+    public function hasVerifiedEmail()
     {
         return !is_null($this->email_verified_at);
     }
