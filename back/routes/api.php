@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\MedecinController;
 use App\Http\Controllers\API\PatientController;
 use App\Models\User;
 use App\Http\Controllers\API\RdvController;
@@ -72,4 +73,11 @@ Route::prefix('patient')->group(function () {
     Route::get('{patient}/show', [PatientController::class, 'show']);
     Route::put('{patient}/update', [PatientController::class, 'update']);
     Route::delete('/delete', [PatientController::class, 'deleteAccount'])->middleware('auth.token');
+});
+
+Route::prefix('medecin')->group(function () {
+    Route::get('/list', [MedecinController::class, 'list']);
+    Route::get('{medecin}/show', [MedecinController::class, 'show']);
+    Route::put('{medecin}/update', [MedecinController::class, 'update']);
+    Route::delete('/delete', [MedecinController::class, 'deleteAccount'])->middleware('auth.token');
 });
