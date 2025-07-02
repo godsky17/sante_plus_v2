@@ -111,6 +111,13 @@ return [
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
+        'mongodb' => [
+            'driver'   => 'mongodb',
+            'host'     => env('DB_HOST', '127.0.0.1'),
+            'dsn'      => env('DB_URI'),
+            'port'     => env('DB_PORT', 27017),
+            'database' => env('DB_DATABASE'),
+        ],
 
     ],
 
