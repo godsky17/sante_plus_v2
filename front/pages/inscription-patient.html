@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Santé+ - Inscription Patient</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Manrope:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex min-h-screen flex-col bg-gray-50 overflow-x-hidden"
+      style="--select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(93,116,137)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e'); font-family: Manrope, 'Noto Sans', sans-serif;"
+    >
+      <div class="layout-container flex flex-col h-full">
+        <header class="flex items-center justify-between border-b border-[#eaedf1] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111518]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Santé+</h2>
+          </div>
+        </header>
+
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:px-4 @[480px]:py-3">
+                <div
+                  class="w-full min-h-[218px] bg-cover bg-center bg-no-repeat overflow-hidden bg-gray-50 @[480px]:rounded-xl"
+                  style='background-image: url("https://img.freepik.com/free-vector/medical-technology-science-background-vector-blue-with-lines_53876-117739.jpg");'
+                ></div>
+              </div>
+            </div>
+
+            <h2 class="text-[28px] text-center font-bold text-[#111518] leading-tight tracking-light px-4 pb-3 pt-5">
+              Créez votre compte patient
+            </h2>
+
+            <div class="flex flex-wrap gap-4 px-4 py-3">
+              <label class="flex flex-col flex-1 min-w-40">
+                <p class="text-base font-medium pb-2">Nom</p>
+                <input placeholder="Votre nom" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+              </label>
+
+              <label class="flex flex-col flex-1 min-w-40">
+                <p class="text-base font-medium pb-2">Prénom</p>
+                <input placeholder="Votre prénom" 
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+              </label>
+            </div>
+
+            <div class="flex flex-wrap gap-4 px-4 py-3">
+            <label class="flex flex-col flex-1 min-w-40">
+                <p class="text-base font-medium pb-2 text-[#111518]">Genre</p>
+                <select name="genre"
+                    class="form-input h-14 p-[15px] rounded-xl bg-[#eaedf1] border border-[#d5dce2] text-[#111518] bg-[image:--select-button-svg] placeholder:text-[#5d7489] focus:border-[#a4bcd1] focus:outline-none focus:ring-0 text-base">
+                    <option value="">Choisir le genre</option>
+                    <option value="homme">Homme</option>
+                    <option value="femme">Femme</option>
+                </select>
+            </label>
+            
+            <label for="date_naissance" class="flex flex-col flex-1 min-w-40">
+                <p class="text-base font-medium pb-2 text-[#111518]">Date de naissance</p>
+                <input id="date_naissance" name="date_naissance" type="date"
+                    class="form-input h-14 p-[15px] rounded-xl bg-[#eaedf1] border border-[#d5dce2] text-[#111518] placeholder:text-[#5d7489] focus:border-[#a4bcd1] focus:outline-none focus:ring-0 text-base" />
+            </label>
+
+
+
+            </div>
+
+            <label class="flex flex-col min-w-40 px-4 py-3">
+              <p class="text-base font-medium pb-2">Adresse</p>
+              <input placeholder="Votre adresse" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+            </label>
+
+            <div class="flex flex-wrap gap-4 px-4 py-3">
+              <label class="flex flex-col flex-1 min-w-40">
+                <p class="text-base font-medium pb-2">Numéro de contact</p>
+                <input placeholder="Ex : +22990011234" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+              </label>
+
+              <label class="flex flex-col flex-1 min-w-40">
+                <p class="text-base font-medium pb-2">Adresse email</p>
+                <input type="email" placeholder="Votre email" 
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+              </label>
+            </div>
+
+            <div class="flex flex-wrap gap-4 px-4 py-3">
+              <label class="flex flex-col flex-1 min-w-40">
+                <p class="text-base font-medium pb-2">Mot de passe</p>
+                <input type="password" placeholder="Créer un mot de passe" 
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+              </label>
+
+              <label class="flex flex-col flex-1 min-w-40">
+                <p class="text-base font-medium pb-2">Confirmer le mot de passe</p>
+                <input type="password" placeholder="Répétez le mot de passe" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+              </label>
+            </div>
+
+            <div class="flex px-4 py-3">
+              <button class="flex cursor-pointer items-center justify-center rounded-xl h-10 px-4 flex-1 bg-[#c5d9eb] text-[#111518] text-sm font-bold tracking-[0.015em]">
+                <span class="truncate">S'inscrire</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
