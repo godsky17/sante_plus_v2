@@ -34,14 +34,14 @@ class RegisterMedecinRequest extends FormRequest
             'photo_profil' => 'nullable|string|url',
             'date_naissance' => 'nullable|date',
             'type_utilisateur' => 'nullable|string',
-            'statut' => 'nullable|string',
+            'statut' => 'nullable|string|in:en_attente_validation,valide,suspendu',
             'preferences_notification' => 'nullable|array',
             'est_independant' => 'nullable|boolean',
-            
+
             'specialites' => 'required|string',
-            'id_hopital' => 'required|string|exists:hopitals,_id', 
+            'id_hopital' => 'required|string|exists:hopitals,_id',
             'documents_justificatifs' => 'required|array',
-            'documents_justificatifs.*' => 'string|url', 
+            'documents_justificatifs.*' => 'string|url',
             'planning_id' => 'nullable|string|exists:plannings,_id',
         ];
     }
