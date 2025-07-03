@@ -50,8 +50,11 @@ Route::get('/email/verify/{id}/{hash}', function ($id, $hash, Request $request) 
     return response()->json(['message' => 'Email vérifié avec succès.']);
 })->name('verification.verify')->middleware(['signed']);
 
-
+// DECONNECTION
 Route::post('/logout', [AuthController::class, 'logout']);
+
+// MODIFICATION MOT DE PASSE
+Route::post('/update-password', [AuthController::class, 'updatePassword']);
 
 Route::prefix('rdv')->group(function () {
     Route::post('/create', [RdvController::class, 'store']);        // Création d’un rendez-vous

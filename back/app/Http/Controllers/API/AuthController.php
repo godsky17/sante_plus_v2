@@ -393,4 +393,51 @@ class AuthController extends Controller
             ], 500);
         }
     }
+
+    public function updatePassword(Request $request)
+    {
+        $token = $request->bearerToken();
+
+        $user = User::where('api_token', $token)->first();
+
+        if (!$user) {
+            return response()->json([
+                'statut' => false,
+                'message' => 'Utilisateur non authentifié.'
+            ], 401);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'ancien_mot_de_passe' => 'required|string',
+            'nouveau_mot_de_passe' => 'required|string|min:8|confirmed'
+        ], [
+            'ancien_mot_de_passe.required' => 'L\'ancien mot de passe est requis.',
+            'nouveau_mot_de_passe.required' => 'Le nouveau mot de passe est requis.',
+            'nouveau_mot_de_passe.min' => 'Le mot de passe doit contenir au moins 8 caractères.',
+            'nouveau_mot_de_passe.confirmed' => 'La confirmation du mot de passe ne correspond pas.'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'statut' => false,
+                'message' => 'Erreurs de validation',
+                'erreurs' => $validator->errors()
+            ], 422);
+        }
+
+        if (!Hash::check($request->ancien_mot_de_passe, $user->mot_de_passe)) {
+            return response()->json([
+                'statut' => false,
+                'message' => 'Ancien mot de passe incorrect.'
+            ], 403);
+        }
+
+        $user->mot_de_passe = Hash::make($request->nouveau_mot_de_passe);
+        $user->save();
+
+        return response()->json([
+            'statut' => true,
+            'message' => 'Mot de passe mis à jour avec succès.'
+        ]);
+    }
 }
