@@ -6,14 +6,14 @@ use MongoDB\Laravel\Eloquent\Model;
 
 class Hopital extends Model
 {
-    protected $collection = 'hopitals'; 
+    protected $collection = 'hopitals';
 
     protected $fillable = [
         'nom',
         'services',
-        'localisation',          
-        'medecins_affilies_ids', 
-        'statistiques',          
+        'localisation',
+        'medecins_affilies_ids',
+        'statistiques',
     ];
 
     protected $casts = [
@@ -23,8 +23,8 @@ class Hopital extends Model
         'statistiques' => 'array',
     ];
 
-    
+    public function medecinsAffilies()
+    {
+        return $this->hasMany(User::class, '_id', 'medecins_affilies_ids');
+    }
 }
-
-
-

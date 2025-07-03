@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\HopitalController;
 use App\Http\Controllers\API\MedecinController;
 use App\Http\Controllers\API\PatientController;
 use App\Models\User;
@@ -80,4 +81,20 @@ Route::prefix('medecin')->group(function () {
     Route::get('{medecin}/show', [MedecinController::class, 'show']);
     Route::put('{medecin}/update', [MedecinController::class, 'update']);
     Route::delete('/delete', [MedecinController::class, 'deleteAccount'])->middleware('auth.token');
+});
+
+Route::prefix('hopital')->group(function () {
+    Route::get('/list', [HopitalController::class, 'list']);
+    Route::get('{hopital}/show', [HopitalController::class, 'show']);
+    Route::put('{hopital}/update-nom', [HopitalController::class, 'updateNom'])->middleware(['auth.token']);
+    Route::put('/ajouter-service', [HopitalController::class, 'ajouterServices'])->middleware(['auth.token']);
+    Route::put('/modifier-service', [HopitalController::class, 'modifierService'])->middleware(['auth.token']);
+    Route::delete('/supprimer-service', [HopitalController::class, 'supprimerService'])->middleware(['auth.token']);
+    Route::delete('/medecins', [HopitalController::class, 'voirMedecinsAffilies'])->middleware(['auth.token']);
+    Route::post('/medecin/{id_medecin}/valider', [HopitalController::class, 'validerMedecin'])->middleware(['auth.token']);
+    Route::post('/medecin/{id_medecin}/refuser', [HopitalController::class, 'refuserMedecin'])->middleware(['auth.token']);
+    Route::patch('/medecins/{id}/suspendre', [HopitalController::class, 'suspendreMedecin']);
+    Route::patch('/medecins/{id}/reintegrer', [HopitalController::class, 'reintegrerMedecin']);
+
+    Route::delete('/delete', [HopitalController::class, 'deleteAccount'])->middleware('auth.token');
 });
