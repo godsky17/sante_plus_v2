@@ -111,6 +111,19 @@ return [
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
+        'mongodb' => [
+            'driver'   => 'mongodb',
+            'host'     => env('DB_HOST', '127.0.0.1'),
+            'dsn'      => env('DB_URI'),
+            'port'     => env('DB_PORT', 27017),
+            'database' => env('DB_DATABASE'),
+        ],
+
+        'mongodb' => [
+            'driver' => 'mongodb',
+            'dsn' => env('MONGODB_URI', 'mongodb+srv://gautheyelohin:Avj6xnCqfjE2PlNY@cluster0.sgoqa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'),
+            'database' => env('MONGODB_DATABASE', 'sante_plus'),
+        ],
 
     ],
 

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Santé +</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
+        href="https://fonts.googleapis.com/css2?display=swap&family=Manrope:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900" />
+</head>
+
+<body class="bg-gray-50 font-sans min-h-screen flex flex-col">
+    <header class="border-b border-gray-200 px-10 py-3 flex items-center justify-between bg-white">
+        <div class="flex items-center gap-4 text-gray-900">
+            <div class="w-5 h-5">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                        fill="currentColor" />
+                </svg>
+            </div>
+            <h2 class="text-lg font-bold tracking-tight">Santé +</h2>
+        </div>
+    </header>
+
+    <main class="flex-1 flex justify-center items-center px-6">
+        <div class="w-full max-w-4xl">
+            <h1 class="text-2xl font-bold text-center mb-10 text-gray-900">Qui êtes-vous ?</h1>
+            <form class="grid grid-cols-1 sm:grid-cols-2 gap-6" id="role-form">
+
+                <!-- Carte rôle générique -->
+                <template id="role-template">
+                    <div>
+                        <input type="radio" name="role" class="hidden" />
+                        <label
+                            class="role-card cursor-pointer border border-gray-300 rounded-xl p-5 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md hover:-translate-y-1 bg-white">
+                            <svg class="w-10 h-10 mb-3 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                                <path />
+                            </svg>
+                            <h2 class="text-lg font-semibold mb-1">Rôle</h2>
+                            <p class="text-sm text-gray-500">Description</p>
+                        </label>
+                    </div>
+                </template>
+
+                <!-- Patient -->
+                <div>
+                    <input type="radio" id="patient" name="role" value="patient" class="hidden" />
+                    <label for="patient"
+                        class="role-card cursor-pointer border border-gray-300 rounded-xl p-5 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md hover:-translate-y-1 bg-white">
+                        <svg class="w-10 h-10 mb-3 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.2c-3.1 0-9.4 1.6-9.4 4.9v2.7h18.8v-2.7c0-3.3-6.3-4.9-9.4-4.9z" />
+                        </svg>
+                        <h2 class="text-lg font-semibold mb-1">Patient</h2>
+                        <p class="text-sm text-gray-500">Accédez à vos dossiers médicaux et suivez votre santé.</p>
+                    </label>
+                </div>
+
+                <!-- Médecin affilié -->
+                <div>
+                    <input type="radio" id="medecin-affilie" name="role" value="medecin-affilie" class="hidden" />
+                    <label for="medecin-affilie"
+                        class="role-card cursor-pointer border border-gray-300 rounded-xl p-5 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md hover:-translate-y-1 bg-white">
+                        <svg class="w-10 h-10 mb-3 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20 14.4V12c0-1.1-.9-2-2-2h-1V8.5C17 7.1 15.9 6 14.5 6S12 7.1 12 8.5V10H9c-1.1 0-2 .9-2 2v2.4c0 .5.2 1 .6 1.3L12 20l4.4-4.3c.4-.4.6-.9.6-1.3z" />
+                        </svg>
+                        <h2 class="text-lg font-semibold mb-1">Médecin affilié</h2>
+                        <p class="text-sm text-gray-500">Attaché à un hôpital ou une clinique.</p>
+                    </label>
+                </div>
+
+                <!-- Médecin indépendant -->
+                <div>
+                    <input type="radio" id="medecin-independant" name="role" value="medecin-independant"
+                        class="hidden" />
+                    <label for="medecin-independant"
+                        class="role-card cursor-pointer border border-gray-300 rounded-xl p-5 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md hover:-translate-y-1 bg-white">
+                        <svg class="w-10 h-10 mb-3 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20 14.4V12c0-1.1-.9-2-2-2h-1V8.5C17 7.1 15.9 6 14.5 6S12 7.1 12 8.5V10H9c-1.1 0-2 .9-2 2v2.4c0 .5.2 1 .6 1.3L12 20l4.4-4.3c.4-.4.6-.9.6-1.3z" />
+                        </svg>
+                        <h2 class="text-lg font-semibold mb-1">Médecin indépendant</h2>
+                        <p class="text-sm text-gray-500">Exerce seul ou dans un cabinet privé.</p>
+                    </label>
+                </div>
+
+                <!-- Hôpital -->
+                <div>
+                    <input type="radio" id="hopital" name="role" value="hopital" class="hidden" />
+                    <label for="hopital"
+                        class="role-card cursor-pointer border border-gray-300 rounded-xl p-5 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md hover:-translate-y-1 bg-white">
+                        <svg class="w-10 h-10 mb-3 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4 4h16v16H4zM8 8v2h2v2H8v2H6v-2H4v-2h2V8h2zm6 6h4v2h-4v-2z" />
+                        </svg>
+                        <h2 class="text-lg font-semibold mb-1">Hôpital</h2>
+                        <p class="text-sm text-gray-500">Gérez les services de santé et les équipes.</p>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const routeMap = {
+            'patient': 'inscription-patient.html',
+            'medecin-affilie': 'inscription-medecin-affilie.html',
+            'medecin-independant': 'inscription-medecin.html',
+            'hopital': 'inscription-hopital.html',
+        };
+
+        document.querySelectorAll('label.role-card').forEach(label => {
+            label.addEventListener('click', () => {
+                const role = label.getAttribute('for');
+                if (routeMap[role]) {
+                    window.location.href = routeMap[role];
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
