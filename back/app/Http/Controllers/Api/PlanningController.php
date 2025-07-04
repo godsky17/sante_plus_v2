@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\Planning;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PlanningController extends Controller
 {
@@ -14,9 +15,22 @@ class PlanningController extends Controller
     public function store(Request $request)
     {
         try {
-            $request->validate([
-                'medecin_id' => 'required|string', // ou 'required|exists:medecins,id' si tu as une table Medecin
+
+            $validator = Validator::make($request->all(), [
+                'medecin_id' => 'required|string|exists:users,_id',
+            ], [
+                'medecin_id.required' => "Le champs medecin est obligatoir.",
+                'medecin_id.string' => "Le champs medecin doit être uniquement constituer de lettre.",
+                'medecin_id.string' => "Le medecin n'existe pas.",
             ]);
+
+            if($validator->fails()){
+                return response()->json([
+                    'statut' => false,
+                    'message' => 'Erreur liées aux champs',
+                    'errors' => $validator->errors()
+                ]);
+            }
 
             $planning = new Planning();
             $planning->medecin_id = $request->medecin_id;
@@ -108,10 +122,22 @@ class PlanningController extends Controller
     {
         try {
             $planning = Planning::findOrFail($planningId);
-
-            $request->validate([
-                'date_heure' => 'required|date',
+            
+            $validator = Validator::make($request->all(), [
+               'date_heure' => 'required|date',
+            ], [
+                'medecin_id.required' => "Le date et heure medecin est obligatoir.",
+                'medecin_id.date' => "Le date est de type date.",
             ]);
+
+            if($validator->fails()){
+                return response()->json([
+                    'statut' => false,
+                    'message' => 'Erreur liées aux champs',
+                    'errors' => $validator->errors()
+                ]);
+            }
+
 
             $dateHeure = strtotime($request->date_heure);
             $disponible = false;
