@@ -119,11 +119,6 @@ return [
             'database' => env('DB_DATABASE'),
         ],
 
-        'mongodb' => [
-            'driver' => 'mongodb',
-            'dsn' => env('MONGODB_URI', 'mongodb+srv://gautheyelohin:Avj6xnCqfjE2PlNY@cluster0.sgoqa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'),
-            'database' => env('MONGODB_DATABASE', 'sante_plus'),
-        ],
 
     ],
 
