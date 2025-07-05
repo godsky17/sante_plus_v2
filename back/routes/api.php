@@ -9,6 +9,11 @@ use App\Http\Controllers\API\PatientController;
 use App\Models\User;
 use App\Http\Controllers\API\RdvController;
 use App\Http\Controllers\API\PlanningController;
+use App\Http\Controllers\Api\OrdonnanceController;
+use App\Http\Controllers\Api\AnalyseController;
+use App\Http\Controllers\Api\NoteController;
+use App\Http\Controllers\Api\DossierMedicalController;
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -100,4 +105,38 @@ Route::prefix('hopital')->group(function () {
     Route::patch('/medecins/{id}/reintegrer', [HopitalController::class, 'reintegrerMedecin']);
 
     Route::delete('/delete', [HopitalController::class, 'deleteAccount'])->middleware('auth.token');
+});
+
+
+Route::prefix('dossiers')->group(function () {
+    Route::get('/', [DossierMedicalController::class, 'index']);
+    Route::post('/', [DossierMedicalController::class, 'store']);
+    Route::get('/{id}', [DossierMedicalController::class, 'show']);
+    Route::put('/{id}', [DossierMedicalController::class, 'update']);
+    Route::patch('/{id}', [DossierMedicalController::class, 'update']);
+    Route::delete('/{id}', [DossierMedicalController::class, 'destroy']);
+});
+
+Route::prefix('notes')->group(function () {
+    Route::get('/', [NoteController::class, 'index']);
+    Route::post('/', [NoteController::class, 'store']);
+    Route::get('/{id}', [NoteController::class, 'show']);
+    Route::put('/{id}', [NoteController::class, 'update']);
+    Route::delete('/{id}', [NoteController::class, 'destroy']);
+});
+
+Route::prefix('analyses')->group(function () {
+    Route::get('/', [AnalyseController::class, 'index']);
+    Route::post('/', [AnalyseController::class, 'store']);
+    Route::get('/{id}', [AnalyseController::class, 'show']);
+    Route::put('/{id}', [AnalyseController::class, 'update']);
+    Route::delete('/{id}', [AnalyseController::class, 'destroy']);
+});
+
+Route::prefix('ordonnances')->group(function () {
+    Route::get('/', [OrdonnanceController::class, 'index']);
+    Route::post('/', [OrdonnanceController::class, 'store']);
+    Route::get('/{id}', [OrdonnanceController::class, 'show']);
+    Route::put('/{id}', [OrdonnanceController::class, 'update']);
+    Route::delete('/{id}', [OrdonnanceController::class, 'destroy']);
 });

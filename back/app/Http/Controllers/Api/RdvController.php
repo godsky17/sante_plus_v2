@@ -134,8 +134,9 @@ class RdvController extends Controller
     public function annuler(string $id)
     {
         try {
+            dd($id);
             $rdv = RendezVous::findOrFail($id); // Récupération manuelle
-            // dd($rdv); // Pour déboguer, supprimer cette ligne en production
+             // Pour déboguer, supprimer cette ligne en production
             $rdv->statut = 'Annulé';
             $rdv->save();
 
