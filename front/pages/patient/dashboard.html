@@ -177,81 +177,41 @@
             </button>
           </div>
 
-          <!-- Tableau -->
-          <div class="px-4 py-3">
-            <div class="flex overflow-hidden rounded-lg border border-[#d0dee7] bg-slate-50">
-              <table class="flex-1" id="table-rdv">
-                <thead>
-                  <tr class="bg-slate-50">
-                    <th class="px-4 py-3 text-left text-[#0e161b] w-[400px] text-sm font-medium">Date</th>
-                    <th class="px-4 py-3 text-left text-[#0e161b] w-[400px] text-sm font-medium">Heure</th>
-                    <th class="px-4 py-3 text-left text-[#0e161b] w-[400px] text-sm font-medium">Type</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr data-date="2025-07-05" class="border-t border-t-[#d0dee7]">
-                    <td class="px-4 py-2 text-[#0e161b] text-sm">2025-07-05</td>
-                    <td class="px-4 py-2 text-[#4e7a97] text-sm">10:00</td>
-                    <td class="px-4 py-2 text-[#4e7a97] text-sm">Consultation en personne</td>
-                  </tr>
-                  <tr data-date="2025-07-06" class="border-t border-t-[#d0dee7]">
-                    <td class="px-4 py-2 text-[#0e161b] text-sm">2025-07-06</td>
-                    <td class="px-4 py-2 text-[#4e7a97] text-sm">11:30</td>
-                    <td class="px-4 py-2 text-[#4e7a97] text-sm">Consultation vidéo</td>
-                  </tr>
-                  <tr data-date="2025-07-01" class="border-t border-t-[#d0dee7]">
-                    <td class="px-4 py-2 text-[#0e161b] text-sm">2025-07-01</td>
-                    <td class="px-4 py-2 text-[#4e7a97] text-sm">14:00</td>
-                    <td class="px-4 py-2 text-[#4e7a97] text-sm">Consultation en personne</td>
-                  </tr>
-                  <tr data-date="2025-06-25" class="border-t border-t-[#d0dee7]">
-                    <td class="px-4 py-2 text-[#0e161b] text-sm">2025-06-25</td>
-                    <td class="px-4 py-2 text-[#4e7a97] text-sm">09:00</td>
-                    <td class="px-4 py-2 text-[#4e7a97] text-sm">Consultation vidéo</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <div id="messageAucunRdv" class="px-4 py-3 text-center text-gray-500 hidden">
+  Vous n'avez aucun rendez-vous prévu.
+</div>
 
-          <!-- Accès rapide -->
-          <h2 class="text-[#0e161b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Accès rapide
-          </h2>
-          <div class="flex justify-stretch">
-            <div class="flex flex-1 gap-3 flex-wrap px-4 py-3 justify-start">
-              <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#e7eef3] text-[#0e161b] text-sm font-bold leading-normal tracking-[0.015em]">
-                <span class="truncate">Prendre rendez-vous</span>
-              </button>
-              <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#e7eef3] text-[#0e161b] text-sm font-bold leading-normal tracking-[0.015em]">
-                <span class="truncate">Consulter un médecin</span>
-              </button>
-              <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#e7eef3] text-[#0e161b] text-sm font-bold leading-normal tracking-[0.015em]">
-                <span class="truncate">Mon dossier médical</span>
-              </button>
-            </div>
-          </div>
+<!-- Le tableau existe déjà, on va juste vider et remplir son tbody -->
+<table class="flex-1" id="table-rdv">
+  <thead>
+    <tr class="bg-slate-50">
+      <th class="px-4 py-3 text-left text-[#0e161b] w-[400px] text-sm font-medium">Date</th>
+      <th class="px-4 py-3 text-left text-[#0e161b] w-[400px] text-sm font-medium">Heure</th>
+      <th class="px-4 py-3 text-left text-[#0e161b] w-[400px] text-sm font-medium">Type</th>
+    </tr>
+  </thead>
+  <tbody id="tbody-rdv">
+    <!-- Les lignes seront ajoutées ici par JS -->
+  </tbody>
+</table>
+
 
           <!-- Notifications -->
-          <h2 class="text-[#0e161b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-            Notifications</h2>
-          <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-[72px] py-2">
-            <div class="text-[#0e161b] flex items-center justify-center rounded-lg bg-[#e7eef3] shrink-0 size-12">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
-                viewBox="0 0 256 256">
-                <path
-                  d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216Z">
-                </path>
-              </svg>
-            </div>
-            <div class="flex flex-col justify-center">
-              <p class="text-[#0e161b] text-base font-medium leading-normal line-clamp-1">Rappel : Consultation vidéo à
-                09:00</p>
-              <p class="text-[#4e7a97] text-sm font-normal leading-normal line-clamp-2">Aujourd’hui</p>
-            </div>
-          </div>
+<h2 class="text-[#0e161b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
+  Notifications
+</h2>
+<div id="notification-container" class="flex items-center gap-4 bg-slate-50 px-4 min-h-[72px] py-2">
+  <div class="text-[#0e161b] flex items-center justify-center rounded-lg bg-[#e7eef3] shrink-0 size-12">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+      <path
+        d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216Z">
+      </path>
+    </svg>
+  </div>
+  <div id="notification-text" class="flex flex-col justify-center">
+    <!-- Le contenu sera injecté ici par le script -->
+  </div>
+</div>
 
           <!-- Historique -->
           <!-- Section Historique des consultations -->
@@ -313,71 +273,217 @@
   </div>
 
   <script>
-    function filtrerRendezVous(periode) {
-      const aujourdHui = new Date();
-      const lignes = document.querySelectorAll("#table-rdv tbody tr");
+// Parse date + heure en objet Date JS complet
+function parseDateHeure(dateStr, heureStr) {
+  return new Date(dateStr + "T" + heureStr + ":00");
+}
 
-      lignes.forEach(ligne => {
-        const dateStr = ligne.getAttribute("data-date");
-        const dateRdv = new Date(dateStr);
-        let afficher = false;
+// Fonction pour récupérer les rendez-vous depuis une API
+async function fetchRendezVousUtilisateur() {
+  try {
+    const response = await fetch('/api/rendezvous', {
+      headers: { 'Accept': 'application/json' },
+      credentials: 'include' // si authentification par session
+    });
+    if (!response.ok) throw new Error('Erreur réseau');
+    const data = await response.json();
+    return data; // [{date, heure, type}, ...]
+  } catch (error) {
+    console.error("Erreur récupération rdv:", error);
+    return [];
+  }
+}
 
-        switch (periode) {
-          case 'jour':
-            afficher = dateRdv.toDateString() === aujourdHui.toDateString();
-            break;
+// Affiche les rendez-vous dans le tableau
+async function afficherRendezVous() {
+  const rdv = await fetchRendezVousUtilisateur();
 
-          case 'semaine': {
-            const debutSemaine = new Date(aujourdHui);
-            debutSemaine.setDate(debutSemaine.getDate() - debutSemaine.getDay()); // dimanche
-            const finSemaine = new Date(debutSemaine);
-            finSemaine.setDate(finSemaine.getDate() + 6); // samedi
+  const tbody = document.getElementById("tbody-rdv");
+  const message = document.getElementById("messageAucunRdv");
+  const table = document.getElementById("table-rdv");
 
-            afficher = dateRdv >= debutSemaine && dateRdv <= finSemaine;
-            break;
-          }
+  tbody.innerHTML = "";
 
-          case 'mois':
-            afficher = dateRdv.getMonth() === aujourdHui.getMonth() && dateRdv.getFullYear() === aujourdHui.getFullYear();
-            break;
-        }
+  if (!rdv || rdv.length === 0) {
+    message.classList.remove("hidden");
+    table.style.display = "none";
+    return;
+  }
 
-        ligne.style.display = afficher ? "" : "none";
-      });
+  message.classList.add("hidden");
+  table.style.display = "";
+
+  rdv.forEach(r => {
+    const tr = document.createElement("tr");
+    tr.classList.add("border-t", "border-t-[#d0dee7]");
+    tr.setAttribute("data-date", r.date);
+
+    tr.innerHTML = `
+      <td class="px-4 py-2 text-[#0e161b] text-sm">${r.date}</td>
+      <td class="px-4 py-2 text-[#4e7a97] text-sm">${r.heure}</td>
+      <td class="px-4 py-2 text-[#4e7a97] text-sm">${r.type}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// Filtre les rendez-vous dans le tableau selon la période choisie
+function filtrerRendezVous(periode) {
+  const maintenant = new Date();
+  const lignes = document.querySelectorAll("#table-rdv tbody tr");
+
+  lignes.forEach(ligne => {
+    const dateStr = ligne.getAttribute("data-date");
+    const heureStr = ligne.querySelector("td:nth-child(2)").textContent.trim();
+    const dateRdv = parseDateHeure(dateStr, heureStr);
+
+    let afficher = false;
+
+    switch (periode) {
+      case 'jour':
+        afficher = dateRdv.toDateString() === maintenant.toDateString();
+        break;
+
+      case 'semaine': {
+        // Premier jour de la semaine (dimanche)
+        const debutSemaine = new Date(maintenant);
+        debutSemaine.setDate(debutSemaine.getDate() - debutSemaine.getDay());
+        // Dernier jour de la semaine (samedi)
+        const finSemaine = new Date(debutSemaine);
+        finSemaine.setDate(finSemaine.getDate() + 6);
+
+        afficher = dateRdv >= debutSemaine && dateRdv <= finSemaine;
+        break;
+      }
+
+      case 'mois':
+        afficher = dateRdv.getMonth() === maintenant.getMonth() && dateRdv.getFullYear() === maintenant.getFullYear();
+        break;
     }
 
-    function filtrerHistorique(periode) {
-      const aujourdHui = new Date();
-      const lignes = document.querySelectorAll("#table-historique tbody tr");
+    ligne.style.display = afficher ? "" : "none";
+  });
+}
 
-      lignes.forEach(ligne => {
-        const dateStr = ligne.getAttribute("data-date");
-        const dateLigne = new Date(dateStr);
-        let afficher = false;
+// Affiche dans la zone notifications les rendez-vous dans les 48h à venir
+async function afficherNotifications() {
+  const notificationsContainer = document.getElementById("notification-container");
+  const notificationText = document.getElementById("notification-text");
 
-        switch (periode) {
-          case 'jour':
-            afficher = dateLigne.toDateString() === aujourdHui.toDateString();
-            break;
+  const rdv = await fetchRendezVousUtilisateur();
 
-          case 'semaine': {
-            const debutSemaine = new Date(aujourdHui);
-            debutSemaine.setDate(debutSemaine.getDate() - debutSemaine.getDay()); // dimanche
-            const finSemaine = new Date(debutSemaine);
-            finSemaine.setDate(finSemaine.getDate() + 6); // samedi
-            afficher = dateLigne >= debutSemaine && dateLigne <= finSemaine;
-            break;
-          }
+  const maintenant = new Date();
+  const limite = new Date(maintenant.getTime() + 48 * 60 * 60 * 1000); // +48h
 
-          case 'mois':
-            afficher = dateLigne.getMonth() === aujourdHui.getMonth() && dateLigne.getFullYear() === aujourdHui.getFullYear();
-            break;
-        }
+  // Filtrer les rdv dans les 48h à venir
+  const rdvImminents = rdv.filter(r => {
+    const dateRdv = parseDateHeure(r.date, r.heure);
+    return dateRdv >= maintenant && dateRdv <= limite;
+  });
 
-        ligne.style.display = afficher ? "" : "none";
-      });
-    }
-  </script>
+  // Nettoyer l'affichage actuel
+  notificationText.innerHTML = "";
+
+  if (rdvImminents.length === 0) {
+    notificationText.innerHTML = `<p class="text-[#0e161b] text-base font-medium leading-normal line-clamp-1">Aucune consultation imminente.</p>`;
+    return;
+  }
+
+  // Afficher la liste des notifications pour les rendez-vous imminents
+  rdvImminents.forEach(r => {
+    // Formatage de la date/heure pour affichage (exemple "5 juil. à 10:00")
+    const dateRdv = new Date(r.date);
+    const optionsDate = { day: 'numeric', month: 'short' };
+    const dateFormat = dateRdv.toLocaleDateString('fr-FR', optionsDate);
+
+    const notifDiv = document.createElement("div");
+    notifDiv.classList.add("flex", "items-center", "gap-4", "bg-slate-50", "px-4", "min-h-[72px]", "py-2", "border-b", "border-gray-200");
+
+    notifDiv.innerHTML = `
+      <div class="text-[#0e161b] flex items-center justify-center rounded-lg bg-[#e7eef3] shrink-0 size-12">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+          <path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216Z"></path>
+        </svg>
+      </div>
+      <div class="flex flex-col justify-center">
+        <p class="text-[#0e161b] text-base font-medium leading-normal line-clamp-1">Rappel : ${r.type} à ${r.heure}</p>
+        <p class="text-[#4e7a97] text-sm font-normal leading-normal line-clamp-2">${dateFormat}</p>
+      </div>
+    `;
+
+    notificationText.appendChild(notifDiv);
+  });
+}
+
+// Au chargement : afficher les rendez-vous et notifications
+window.addEventListener("DOMContentLoaded", () => {
+  afficherRendezVous();
+  afficherNotifications();
+});
+
+async function fetchHistoriqueConsultations() {
+  try {
+    const response = await fetch('/api/consultations', {
+      headers: {
+        'Accept': 'application/json',
+        // Ajoute ton token ici si nécessaire :
+        // 'Authorization': 'Bearer TON_TOKEN',
+      },
+      credentials: 'include'
+    });
+
+    if (!response.ok) throw new Error('Erreur lors de la récupération des consultations');
+    const data = await response.json();
+    return data; // Doit être un tableau d’objets : [{ date, medecin, type }]
+  } catch (error) {
+    console.error("Erreur fetch historique consultations :", error);
+    return [];
+  }
+}
+
+async function afficherHistoriqueConsultations() {
+  const consultations = await fetchHistoriqueConsultations();
+
+  const tbody = document.querySelector("#table-historique tbody");
+
+  // Réinitialise le tableau
+  tbody.innerHTML = "";
+
+  // On garde max 5 consultations récentes (triées par date décroissante)
+  const consultationsTriees = consultations
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 5);
+
+  consultationsTriees.forEach(consult => {
+    const tr = document.createElement("tr");
+    tr.classList.add("border-t", "border-t-[#d0dee7]");
+    tr.setAttribute("data-date", consult.date);
+
+    tr.innerHTML = `
+      <td class="px-4 py-2 text-[#0e161b] text-sm">${consult.date}</td>
+      <td class="px-4 py-2 text-[#4e7a97] text-sm">${consult.medecin}</td>
+      <td class="px-4 py-2 text-[#4e7a97] text-sm">${consult.type}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+
+  // Si aucune consultation, affiche un message
+  if (consultationsTriees.length === 0) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td colspan="3" class="px-4 py-2 text-center text-gray-500 text-sm">
+        Aucune consultation trouvée.
+      </td>
+    `;
+    tbody.appendChild(tr);
+  }
+}
+
+// Appel au chargement
+window.addEventListener("DOMContentLoaded", afficherHistoriqueConsultations);
+
+</script>
 </body>
 
 </html>

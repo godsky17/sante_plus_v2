@@ -1,36 +1,28 @@
+<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link
-      rel="stylesheet"
-      as="style"
-      onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&family=Manrope:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900"
-    />
     <title>Santé + | Recherche Médecins & Hôpitaux</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Manrope:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900" />
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   </head>
-  <body
-    class="min-h-screen bg-[#f8f9fc] font-manrope text-[#0d0f1c] antialiased selection:bg-[#607afb] selection:text-white"
-    style="font-family: Manrope, 'Noto Sans', sans-serif;"
-  >
+
+  <body class="min-h-screen bg-[#f8f9fc] font-manrope text-[#0d0f1c] antialiased selection:bg-[#607afb] selection:text-white" style="font-family: Manrope, 'Noto Sans', sans-serif;">
     <div class="flex flex-col min-h-screen">
       <!-- Header -->
-      <header
-        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-10 py-3">
+      <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-10 py-3">
         <div class="flex items-center gap-4 text-[#0d151c]">
           <div class="size-4">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
-                fill="currentColor"></path>
+              <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
             </svg>
           </div>
           <h2 class="text-[#0d151c] text-lg font-bold leading-tight tracking-[-0.015em]">Sante +</h2>
         </div>
+
         <div class="flex flex-1 justify-end gap-8">
           <div class="flex items-center gap-9">
             <a class="text-[#0d151c] text-sm font-medium leading-normal" href="../index.html">Accueil</a>
@@ -38,12 +30,12 @@
             <a class="text-[#0d151c] text-sm font-medium leading-normal" href="../index.html#contact">Contact</a>
           </div>
           <div class="flex gap-2">
-            <a href="./connexion.html"
-              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#0b80ee] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]">
-              <span class="truncate">Connexion</span>
-            </a>
-            <a href="./search-medecin.html"
-              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#e7edf4] text-[#0d151c] text-sm font-bold leading-normal tracking-[0.015em]">
+            <div id="zone-auth" class="flex gap-2">
+              <a href="./connexion.html" id="btn-login" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#0b80ee] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]">
+                <span class="truncate">Connexion</span>
+              </a>
+            </div>
+            <a href="./search-medecin.html" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#e7edf4] text-[#0d151c] text-sm font-bold leading-normal tracking-[0.015em]">
               <span class="truncate">Consulter</span>
             </a>
           </div>
@@ -51,177 +43,132 @@
       </header>
 
       <!-- Contenu principal -->
-      <main
-        class="flex flex-col flex-grow max-w-4xl mx-auto w-full px-6 sm:px-10 py-6"
-        role="main"
-      >
+      <main class="flex flex-col flex-grow max-w-4xl mx-auto w-full px-6 sm:px-10 py-6" role="main">
         <!-- Recherche avancée -->
-      <section class="mb-6">
-        <label
-          class="relative flex items-center w-full bg-[#e6e9f4] rounded-xl border border-[#e6e9f4] focus-within:border-[#607afb] transition-colors duration-200"
-          aria-label="Recherche principale">
-          <input type="search" placeholder="Rechercher des médecins ou hôpitaux"
-            class="w-full rounded-xl bg-transparent py-3 pl-3 pr-10 text-lg placeholder:text-[#47569e] focus:outline-none"
-            style="border: none;" />
-          <button type="button" aria-label="Effacer la recherche"
-            class="absolute right-3 text-[#47569e] hover:text-[#607afb] focus:outline-none focus:ring-2 focus:ring-[#607afb] rounded">
-          </button>
-        </label>
-      </section>
-
+        <section class="mb-6">
+          <label class="relative flex items-center w-full bg-[#e6e9f4] rounded-xl border border-[#e6e9f4] focus-within:border-[#607afb] transition-colors duration-200">
+            <input type="search" placeholder="Rechercher des médecins ou hôpitaux" class="w-full rounded-xl bg-transparent py-3 pl-3 pr-10 text-lg placeholder:text-[#47569e] focus:outline-none" />
+            <button type="button" aria-label="Effacer la recherche" class="absolute right-3 text-[#47569e] hover:text-[#607afb] focus:outline-none focus:ring-2 focus:ring-[#607afb] rounded"></button>
+          </label>
+        </section>
 
         <!-- Filtres -->
         <section class="mb-8 flex flex-wrap gap-3">
-          <div class="relative w-48">
-            <select
-              class="appearance-none w-full rounded-full bg-[#e6e9f4] py-1.5 px-4 text-sm font-medium text-[#0d0f1c] hover:bg-[#d6dbf7] focus:outline-none focus:ring-2 focus:ring-[#607afb] transition cursor-pointer"
-              aria-label="Spécialité">
-              <option selected disabled>Spécialité</option>
-              <option>Cardiologie</option>
-              <option>Pédiatrie</option>
-              <option>Dermatologie</option>
-              <!-- Ajoute d’autres options ici -->
-            </select>
-          </div>
-        
-          <div class="relative w-48">
-            <select
-              class="appearance-none w-full rounded-full bg-[#e6e9f4] py-1.5 px-4 text-sm font-medium text-[#0d0f1c] hover:bg-[#d6dbf7] focus:outline-none focus:ring-2 focus:ring-[#607afb] transition cursor-pointer"
-              aria-label="Localisation">
-              <option selected disabled>Localisation</option>
-              <option>Paris</option>
-              <option>Lyon</option>
-              <option>Marseille</option>
-              <!-- Ajoute d’autres options ici -->
-            </select>
-          </div>
-        
-          <div class="relative w-48">
-            <select
-              class="appearance-none w-full rounded-full bg-[#e6e9f4] py-1.5 px-4 text-sm font-medium text-[#0d0f1c] hover:bg-[#d6dbf7] focus:outline-none focus:ring-2 focus:ring-[#607afb] transition cursor-pointer"
-              aria-label="Disponibilité">
-              <option selected disabled>Disponibilité</option>
-              <option>Disponible</option>
-              <option>Indisponible</option>
-              <!-- Ajoute d’autres options ici -->
-            </select>
-          </div>
-        
-          <div class="relative w-48">
-            <select
-              class="appearance-none w-full rounded-full bg-[#e6e9f4] py-1.5 px-4 text-sm font-medium text-[#0d0f1c] hover:bg-[#d6dbf7] focus:outline-none focus:ring-2 focus:ring-[#607afb] transition cursor-pointer"
-              aria-label="Type d'hôpital">
-              <option selected disabled>Type d'hôpital</option>
-              <option>Public</option>
-              <option>Privé</option>
-              <option>Clinique</option>
-              <!-- Ajoute d’autres options ici -->
-            </select>
-          </div>
+          <select class="relative w-48 appearance-none rounded-full bg-[#e6e9f4] py-1.5 px-4 text-sm font-medium text-[#0d0f1c]">
+            <option selected disabled>Spécialité</option>
+            <option>Cardiologie</option>
+            <option>Pédiatrie</option>
+            <option>Dermatologie</option>
+          </select>
+
+          <select class="relative w-48 appearance-none rounded-full bg-[#e6e9f4] py-1.5 px-4 text-sm font-medium text-[#0d0f1c]">
+            <option selected disabled>Localisation</option>
+            <option>Paris</option>
+            <option>Lyon</option>
+            <option>Marseille</option>
+          </select>
+
+          <select class="relative w-48 appearance-none rounded-full bg-[#e6e9f4] py-1.5 px-4 text-sm font-medium text-[#0d0f1c]">
+            <option selected disabled>Disponibilité</option>
+            <option>Disponible</option>
+            <option>Indisponible</option>
+          </select>
+
+          <select class="relative w-48 appearance-none rounded-full bg-[#e6e9f4] py-1.5 px-4 text-sm font-medium text-[#0d0f1c]">
+            <option selected disabled>Type d'hôpital</option>
+            <option>Public</option>
+            <option>Privé</option>
+            <option>Clinique</option>
+          </select>
         </section>
 
-
-        <!-- Résultats -->
-        <section class="flex flex-col gap-4 mb-8" aria-label="Liste des médecins et hôpitaux">
-          <article
-            class="flex items-center gap-4 bg-white px-6 py-4 rounded-lg shadow-sm"
-          >
-            <div
-              class="bg-center bg-no-repeat bg-cover rounded-full h-16 w-16 shrink-0"
-              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2ITA1R2AYb5CVE_naw5E4pzYN_4ASOn2DhIwq1eDF1ahPn9KdCs741mQnpbbLUIvLDCalMEA6QVG8qzBFE_m4ev77AH_3tl6sYPDWdEqNyiC1_D5X12ZnH_FN7I0RwRQVLL71wn1W_U7miQh5R9YtKHc-x3RX2VHGaAwHhx3NMF8VN0BjyCNx069wDq85lKk4GxmsPE4l9gdmIzf63N5Mma526Xr0xzq3f4xeoy4Nh2gW2lxC4v0MqvCvhJUxgtaMkr0X0utTI14');"
-              aria-hidden="true"
-            ></div>
-            <div class="flex flex-col justify-center min-w-0">
-              <h2
-                class="text-[#0d0f1c] font-semibold text-lg leading-tight truncate"
-              >
-                Dr. Emily Carter
-              </h2>
-              <p class="text-[#47569e] text-sm font-normal leading-tight truncate max-w-xs">
-                Cardiologie · 4.5 étoiles · 2 miles
-              </p>
-            </div>
-          </article>
-
-          <article
-            class="flex items-center gap-4 bg-white px-6 py-4 rounded-lg shadow-sm"
-          >
-            <div
-              class="bg-center bg-no-repeat bg-cover rounded-full h-16 w-16 shrink-0"
-              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD42CoYOPthEI7ELqP2LeFJMu7LnI1MttmcZB5EMXGTUL893bhMcDlPhFykmaTZJJBIovLBsCrE9q0Z4UUkuFgBeW-uO6gnjJxCtMYcxt6i-hO2DPiFdR0nUpgrxXu8Y9oPl_QmvZoGs-Icac2srnoEDBZex4oYsHUBqhq-EZq3tOATojX2DXNk8DciFdsFoBJMyYDDtPuxiMfVn3wRwpa7VvjmutihtN1d0EBOYBszY_aNZ0crYFHFfty_AVGFsWL5ZADVXGF62To');"
-              aria-hidden="true"
-            ></div>
-            <div class="flex flex-col justify-center min-w-0">
-              <h2
-                class="text-[#0d0f1c] font-semibold text-lg leading-tight truncate"
-              >
-                Dr. David Lee
-              </h2>
-              <p class="text-[#47569e] text-sm font-normal leading-tight truncate max-w-xs">
-                Pédiatrie · 4.8 étoiles · 3 miles
-              </p>
-            </div>
-          </article>
-
-          <article
-            class="flex items-center gap-4 bg-white px-6 py-4 rounded-lg shadow-sm"
-          >
-            <div
-              class="bg-center bg-no-repeat bg-cover rounded-full h-16 w-16 shrink-0"
-              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8ZeRSTJRKGK2FU2BYfxVPfg7dOVAiF3u2G5iOs08JAedf1_szC8gXN40z8GiEGy2C69_3xiCen9y9kLGgCZT3fbgKxb5A3WaJhO3X7OaRw0S92J0ImBBIxsovWMXDEp7afDMk-suohfzEFHIjGdB3D2WRLEEMu1FVbrjvWBNCK-QmAhnfUiHnqdD9gOPNqIKcGrhMMZNlfEHCgNbEoyiIa-CY--h11v0e5MXFoGVDz6Vv2-cqKfQ0Fwpw22x0env_vrROQTzbfp8');"
-              aria-hidden="true"
-            ></div>
-            <div class="flex flex-col justify-center min-w-0">
-              <h2
-                class="text-[#0d0f1c] font-semibold text-lg leading-tight truncate"
-              >
-                Dr. Sarah Chen
-              </h2>
-              <p class="text-[#47569e] text-sm font-normal leading-tight truncate max-w-xs">
-                Dermatologie · 4.2 étoiles · 5 miles
-              </p>
-            </div>
-          </article>
+        <!-- Résultats dynamiques -->
+        <section id="resultats-medecins" class="flex flex-col gap-4 mb-8" aria-label="Liste des médecins et hôpitaux">
+          <!-- Les médecins seront injectés ici -->
         </section>
 
-        <!-- Pagination -->
-        <nav
-          class="flex justify-center items-center gap-3 mb-4"
-          aria-label="Pagination"
-        >
-          <button
-            type="button"
-            class="rounded-md border border-[#d7d7f3] py-2 px-3 font-semibold text-[#47569e] hover:border-[#607afb] hover:text-[#607afb] transition"
-          >
-            Précédent
-          </button>
-          <button
-            type="button"
-            aria-current="page"
-            class="rounded-md border border-[#607afb] bg-[#607afb] py-2 px-3 font-semibold text-white"
-          >
-            1
-          </button>
-          <button
-            type="button"
-            class="rounded-md border border-[#d7d7f3] py-2 px-3 font-semibold text-[#47569e] hover:border-[#607afb] hover:text-[#607afb] transition"
-          >
-            2
-          </button>
-          <button
-            type="button"
-            class="rounded-md border border-[#d7d7f3] py-2 px-3 font-semibold text-[#47569e] hover:border-[#607afb] hover:text-[#607afb] transition"
-          >
-            3
-          </button>
-          <button
-            type="button"
-            class="rounded-md border border-[#d7d7f3] py-2 px-3 font-semibold text-[#47569e] hover:border-[#607afb] hover:text-[#607afb] transition"
-          >
-            Suivant
-          </button>
+        <!-- Pagination (statique) -->
+        <nav class="flex justify-center items-center gap-3 mb-4" aria-label="Pagination">
+          <button type="button" class="rounded-md border border-[#d7d7f3] py-2 px-3 font-semibold text-[#47569e] hover:border-[#607afb] hover:text-[#607afb] transition">Précédent</button>
+          <button type="button" class="rounded-md border border-[#607afb] bg-[#607afb] py-2 px-3 font-semibold text-white">1</button>
+          <button type="button" class="rounded-md border border-[#d7d7f3] py-2 px-3 font-semibold text-[#47569e] hover:border-[#607afb] hover:text-[#607afb] transition">2</button>
+          <button type="button" class="rounded-md border border-[#d7d7f3] py-2 px-3 font-semibold text-[#47569e] hover:border-[#607afb] hover:text-[#607afb] transition">3</button>
+          <button type="button" class="rounded-md border border-[#d7d7f3] py-2 px-3 font-semibold text-[#47569e] hover:border-[#607afb] hover:text-[#607afb] transition">Suivant</button>
         </nav>
       </main>
     </div>
+
+    <!-- Script -->
+    <script>
+      async function fetchMedecins() {
+        try {
+          const response = await fetch('/api/medecins', {
+            headers: { 'Accept': 'application/json' },
+            credentials: 'include'
+          });
+          if (!response.ok) throw new Error('Erreur récupération médecins');
+          return await response.json();
+        } catch (error) {
+          console.error("Erreur fetch médecins :", error);
+          return [];
+        }
+      }
+
+      function afficherMedecins(medecins) {
+        const section = document.getElementById("resultats-medecins");
+        section.innerHTML = "";
+
+        if (medecins.length === 0) {
+          section.innerHTML = `<p class="text-center text-sm text-gray-500">Aucun médecin trouvé.</p>`;
+          return;
+        }
+
+        medecins.forEach(m => {
+          const article = document.createElement("article");
+          article.className = "flex items-center gap-4 bg-white px-6 py-4 rounded-lg shadow-sm";
+          article.innerHTML = `
+            <div class="bg-center bg-no-repeat bg-cover rounded-full h-16 w-16 shrink-0"
+              style="background-image: url('${m.photo ?? 'https://via.placeholder.com/150'}');" aria-hidden="true"></div>
+            <div class="flex flex-col justify-center min-w-0">
+              <h2 class="text-[#0d0f1c] font-semibold text-lg leading-tight truncate">${m.nom}</h2>
+              <p class="text-[#47569e] text-sm font-normal leading-tight truncate max-w-xs">
+                ${m.specialite} · ${m.note ?? "non noté"} · ${m.distance ?? "inconnue"}
+              </p>
+            </div>`;
+          section.appendChild(article);
+        });
+      }
+
+      async function verifierConnexion() {
+        try {
+          const res = await fetch('/api/user', {
+            headers: { 'Accept': 'application/json' },
+            credentials: 'include'
+          });
+
+          if (!res.ok) throw new Error("Non connecté");
+          const user = await res.json();
+
+          const zone = document.getElementById('zone-auth');
+          zone.innerHTML = `
+            <a href="/dashboard/patient.html"
+              class="flex h-10 w-10 items-center justify-center rounded-full bg-[#0b80ee] text-white hover:bg-[#0a6fd0] transition">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M5.121 17.804A11.954 11.954 0 0012 20c2.753 0 5.26-.935 7.24-2.5m-4.24-6.5a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </a>`;
+        } catch (e) {
+          console.log("Utilisateur non connecté");
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", async () => {
+        const medecins = await fetchMedecins();
+        afficherMedecins(medecins);
+        verifierConnexion();
+      });
+    </script>
   </body>
 </html>

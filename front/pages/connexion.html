@@ -2,8 +2,8 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Connexion - Santé+</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
@@ -14,18 +14,18 @@
 <body class="bg-gray-50 font-sans min-h-screen flex items-center justify-center px-4">
   <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
     <div class="flex flex-col items-center mb-6">
-        <a href="../index.html">
-            <div class="w-10 h-10 mb-2 text-blue-600">
-                <svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" />
-                </svg>
-            </div>
-        </a>
+      <a href="../index.html">
+        <div class="w-10 h-10 mb-2 text-blue-600">
+          <svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" />
+          </svg>
+        </div>
+      </a>
       <h2 class="text-2xl font-bold text-gray-800">Connexion à Santé+</h2>
     </div>
 
-    <form action="#" method="POST" class="space-y-5">
+    <form id="login-form" method="POST" class="space-y-5">
       <div>
         <label for="email" class="block text-sm font-medium text-gray-700">Adresse e-mail</label>
         <input type="email" name="email" id="email" required
@@ -57,6 +57,41 @@
       <a href="./qui-etes-vous.html" class="text-blue-600 hover:underline">Créer un compte</a>
     </p>
   </div>
+
+ <script>
+  document.getElementById('login-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const mot_de_passe = document.getElementById('mot_de_passe').value;
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, mot_de_passe })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.status) {
+        // Suppression de l'alerte
+        // Redirection vers le dashboard patient
+        localStorage.setItem('api_token', data.api_token);
+        localStorage.setItem('utilisateur_connecte', JSON.stringify(data.user));
+        window.location.href = 'patient/dashboard.html';
+      } else {
+        alert(data.message || 'Erreur de connexion');
+      }
+    } catch (error) {
+      console.error('Erreur :', error);
+      alert('Une erreur est survenue. Veuillez réessayer plus tard.');
+    }
+  });
+</script>
+
 </body>
 
 </html>

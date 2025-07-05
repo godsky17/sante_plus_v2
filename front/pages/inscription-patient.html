@@ -47,79 +47,159 @@
               Créez votre compte patient
             </h2>
 
-            <div class="flex flex-wrap gap-4 px-4 py-3">
-              <label class="flex flex-col flex-1 min-w-40">
-                <p class="text-base font-medium pb-2">Nom</p>
-                <input placeholder="Votre nom" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
-              </label>
+            <form id="registerForm" method="POST" novalidate>
+              <div class="flex flex-wrap gap-4 px-4 py-3">
+                <label class="flex flex-col flex-1 min-w-40">
+                  <p class="text-base font-medium pb-2">Nom</p>
+                  <input name="nom" id="nom" placeholder="Votre nom" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+                  <span class="error text-red-600 text-sm mt-1" id="error-nom"></span>
+                </label>
 
-              <label class="flex flex-col flex-1 min-w-40">
-                <p class="text-base font-medium pb-2">Prénom</p>
-                <input placeholder="Votre prénom" 
-                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
-              </label>
-            </div>
+                <label class="flex flex-col flex-1 min-w-40">
+                  <p class="text-base font-medium pb-2">Prénom</p>
+                  <input name="prenom" id="prenom" placeholder="Votre prénom" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+                  <span class="error text-red-600 text-sm mt-1" id="error-prenom"></span>
+                </label>
+              </div>
 
-            <div class="flex flex-wrap gap-4 px-4 py-3">
-            <label class="flex flex-col flex-1 min-w-40">
-                <p class="text-base font-medium pb-2 text-[#111518]">Genre</p>
-                <select name="genre"
-                    class="form-input h-14 p-[15px] rounded-xl bg-[#eaedf1] border border-[#d5dce2] text-[#111518] bg-[image:--select-button-svg] placeholder:text-[#5d7489] focus:border-[#a4bcd1] focus:outline-none focus:ring-0 text-base">
+              <div class="flex flex-wrap gap-4 px-4 py-3">
+                <label class="flex flex-col flex-1 min-w-40">
+                  <p class="text-base font-medium pb-2 text-[#111518]">Genre</p>
+                  <select name="genre" id="genre" class="form-input h-14 p-[15px] rounded-xl bg-[#eaedf1] border border-[#d5dce2] text-[#111518] bg-[image:--select-button-svg] placeholder:text-[#5d7489] focus:border-[#a4bcd1] focus:outline-none focus:ring-0 text-base">
                     <option value="">Choisir le genre</option>
                     <option value="homme">Homme</option>
                     <option value="femme">Femme</option>
-                </select>
-            </label>
-            
-            <label for="date_naissance" class="flex flex-col flex-1 min-w-40">
-                <p class="text-base font-medium pb-2 text-[#111518]">Date de naissance</p>
-                <input id="date_naissance" name="date_naissance" type="date"
-                    class="form-input h-14 p-[15px] rounded-xl bg-[#eaedf1] border border-[#d5dce2] text-[#111518] placeholder:text-[#5d7489] focus:border-[#a4bcd1] focus:outline-none focus:ring-0 text-base" />
-            </label>
+                  </select>
+                  <span class="error text-red-600 text-sm mt-1" id="error-genre"></span>
+                </label>
 
+                <label for="date_naissance" class="flex flex-col flex-1 min-w-40">
+                  <p class="text-base font-medium pb-2 text-[#111518]">Date de naissance</p>
+                  <input id="date_naissance" name="date_naissance" type="date" class="form-input h-14 p-[15px] rounded-xl bg-[#eaedf1] border border-[#d5dce2] text-[#111518] placeholder:text-[#5d7489] focus:border-[#a4bcd1] focus:outline-none focus:ring-0 text-base" />
+                  <span class="error text-red-600 text-sm mt-1" id="error-date_naissance"></span>
+                </label>
+              </div>
 
-
-            </div>
-
-            <label class="flex flex-col min-w-40 px-4 py-3">
-              <p class="text-base font-medium pb-2">Adresse</p>
-              <input placeholder="Votre adresse" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
-            </label>
-
-            <div class="flex flex-wrap gap-4 px-4 py-3">
-              <label class="flex flex-col flex-1 min-w-40">
-                <p class="text-base font-medium pb-2">Numéro de contact</p>
-                <input placeholder="Ex : +22990011234" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+              <label class="flex flex-col min-w-40 px-4 py-3">
+                <p class="text-base font-medium pb-2">Adresse</p>
+                <input name="adresse" id="adresse" placeholder="Votre adresse" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+                <span class="error text-red-600 text-sm mt-1" id="error-adresse"></span>
               </label>
 
-              <label class="flex flex-col flex-1 min-w-40">
-                <p class="text-base font-medium pb-2">Adresse email</p>
-                <input type="email" placeholder="Votre email" 
-                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
-              </label>
-            </div>
+              <div class="flex flex-wrap gap-4 px-4 py-3">
+                <label class="flex flex-col flex-1 min-w-40">
+                  <p class="text-base font-medium pb-2">Numéro de contact</p>
+                  <input name="contact" id="contact" placeholder="Ex : +22990011234" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+                  <span class="error text-red-600 text-sm mt-1" id="error-contact"></span>
+                </label>
 
-            <div class="flex flex-wrap gap-4 px-4 py-3">
-              <label class="flex flex-col flex-1 min-w-40">
-                <p class="text-base font-medium pb-2">Mot de passe</p>
-                <input type="password" placeholder="Créer un mot de passe" 
-                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
-              </label>
+                <label class="flex flex-col flex-1 min-w-40">
+                  <p class="text-base font-medium pb-2">Adresse email</p>
+                  <input type="email" name="email" id="email" placeholder="Votre email" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+                  <span class="error text-red-600 text-sm mt-1" id="error-email"></span>
+                </label>
+              </div>
 
-              <label class="flex flex-col flex-1 min-w-40">
-                <p class="text-base font-medium pb-2">Confirmer le mot de passe</p>
-                <input type="password" placeholder="Répétez le mot de passe" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
-              </label>
-            </div>
+              <div class="flex flex-wrap gap-4 px-4 py-3">
+                <label class="flex flex-col flex-1 min-w-40">
+                  <p class="text-base font-medium pb-2">Mot de passe</p>
+                  <input type="password" name="mot_de_passe" id="mot_de_passe" placeholder="Créer un mot de passe" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+                  <span class="error text-red-600 text-sm mt-1" id="error-mot_de_passe"></span>
+                </label>
 
-            <div class="flex px-4 py-3">
-              <button class="flex cursor-pointer items-center justify-center rounded-xl h-10 px-4 flex-1 bg-[#c5d9eb] text-[#111518] text-sm font-bold tracking-[0.015em]">
-                <span class="truncate">S'inscrire</span>
-              </button>
-            </div>
+                <label class="flex flex-col flex-1 min-w-40">
+                  <p class="text-base font-medium pb-2">Confirmer le mot de passe</p>
+                  <input type="password" name="mot_de_passe_confirmation" id="mot_de_passe_confirmation" placeholder="Répétez le mot de passe" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#eaedf1] focus:border-none h-14 placeholder:text-[#5d7489] p-4 text-base font-normal leading-normal" />
+                  <span class="error text-red-600 text-sm mt-1" id="error-mot_de_passe_confirmation"></span>
+                </label>
+              </div>
+
+              <input type="hidden" name="type_utilisateur" value="patient" />
+              <input type="hidden" name="statut" value="non_affilie" />
+              <input type="hidden" name="photo_profil" value="" />
+              <input type="hidden" name="preferences_notification" value="email" />
+
+              <div class="flex px-4 py-3">
+                <button type="submit" id="submitBtn" class="flex cursor-pointer items-center justify-center rounded-xl h-10 px-4 flex-1 bg-[#c5d9eb] text-[#111518] text-sm font-bold tracking-[0.015em]">
+                  <span class="truncate">S'inscrire</span>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
+
+<script>
+  const form = document.getElementById('registerForm');
+  const submitBtn = document.getElementById('submitBtn');
+
+  function showErrors(errors) {
+    document.querySelectorAll('.error').forEach(span => span.textContent = '');
+    for (const [field, messages] of Object.entries(errors)) {
+      const errorSpan = document.getElementById(`error-${field}`);
+      if (errorSpan) errorSpan.textContent = messages.join(', ');
+    }
+  }
+
+  function setFormValues(values) {
+    for (const [key, value] of Object.entries(values)) {
+      const input = form.elements.namedItem(key);
+      if (input) input.value = value;
+    }
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi en cours...';
+
+    const formData = new FormData(form);
+    const data = {};
+
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+
+    // Forcer preferences_notification à ["email"]
+    data['preferences_notification'] = ['email'];
+
+    console.log('Données envoyées à l’API:', data);
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/register-patient', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      console.log('Response status:', response.status);
+      console.log('API response JSON:', result);
+
+      if (response.ok && result.status === true) {
+        alert('Inscription réussie !');
+        window.location.href = 'http://127.0.0.1:5500/front/pages/confirmation-lien-envoye.html';
+      } else if (response.status === 422 && result.errors) {
+        showErrors(result.errors);
+        setFormValues(data);
+      } else {
+        alert(result.message || 'Erreur inconnue');
+      }
+    } catch (err) {
+      console.error('Erreur réseau:', err);
+      alert('Erreur réseau ou serveur');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "S'inscrire";
+    }
+  });
+</script>
+
+
     </div>
   </body>
 </html>

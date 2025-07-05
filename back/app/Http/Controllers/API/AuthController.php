@@ -77,9 +77,9 @@ class AuthController extends Controller
                 'genre' => $data['genre'],
                 'photo_profil' => $data['photo_profil'],
                 'date_naissance' => $data['date_naissance'],
-                'type_utilisateur' => $data['type_utilisateur'],
+                'type_utilisateur' => "patient",
                 'statut' => $data['statut'],
-                'preferences_notification' => $data['preferences_notification'],
+                'preferences_notification' => $data['preferences_notification'] ?? [],
                 'api_token' => hash('sha256', Str::random(60)),
             ]);
 

@@ -140,3 +140,19 @@ Route::prefix('ordonnances')->group(function () {
     Route::put('/{id}', [OrdonnanceController::class, 'update']);
     Route::delete('/{id}', [OrdonnanceController::class, 'destroy']);
 });
+
+
+
+
+
+
+
+
+
+
+Route::middleware('auth:sanctum')->get('/rendezvous', function (Request $request) {
+    $patient = $request->user();
+    // Exemple : récupérer les rdv du patient
+    $rendezVous = RendezVous::where('patient_id', $patient->id)->get(['date', 'heure', 'type']);
+    return response()->json($rendezVous);
+});
