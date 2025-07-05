@@ -143,83 +143,103 @@
             </div>
           </div>
         </div>
-        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-          <div class="flex flex-wrap justify-between gap-3 p-4">
-            <p class="text-[#101518] tracking-light text-[32px] font-bold leading-tight min-w-72">Tableau de bord</p>
-          </div>
-          <h2 class="text-[#101518] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Aperçu</h2>
-          <div class="flex flex-wrap gap-4 p-4">
-            <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#d4dde2]">
-              <p class="text-[#101518] text-base font-medium leading-normal">Utilisateurs totaux</p>
-              <p class="text-[#101518] tracking-light text-2xl font-bold leading-tight">1,234</p>
-            </div>
-            <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#d4dde2]">
-              <p class="text-[#101518] text-base font-medium leading-normal">Validations en attente</p>
-              <p class="text-[#101518] tracking-light text-2xl font-bold leading-tight">56</p>
-            </div>
-            <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#d4dde2]">
-              <p class="text-[#101518] text-base font-medium leading-normal">Réclamations ouvertes</p>
-              <p class="text-[#101518] tracking-light text-2xl font-bold leading-tight">12</p>
-            </div>
-          </div>
-          <h3 class="text-[#101518] tracking-light text-2xl font-bold leading-tight px-4 text-left pb-2 pt-5">
-            Validations en attente (56)</h3>
-          <div class="px-4 py-6 @container">
-            <div class="overflow-x-auto rounded-xl border border-[#d4dde2] bg-gray-50">
-              <table class="min-w-full">
-                <thead>
-                  <tr class="bg-gray-100 text-sm font-semibold text-[#101518]">
-                    <th class="px-4 py-3 text-left w-[240px]">Utilisateur</th>
-                    <th class="px-4 py-3 text-left w-[120px]">Type</th>
-                    <th class="px-4 py-3 text-left w-[200px]">Date</th>
-                    <th class="px-4 py-3 text-left w-[300px]">Actions</th>
-                  </tr>
-                </thead>
-                <tbody class="text-sm text-[#101518]">
-                  <tr class="border-t border-[#d4dde2]">
-                    <td class="px-4 py-4">Dr. Lucas Martin</td>
-                    <td class="px-4 py-4">
-                      <span class="inline-block bg-[#eaeef1] text-[#101518] px-3 py-1 rounded-full">Médecin</span>
-                    </td>
-                    <td class="px-4 py-4 text-[#5c778a]">2024-07-25</td>
-                    <td class="px-4 py-4 flex gap-2 flex-wrap">
-                      <button onclick="showModal('validateModal')"
-                        class="bg-green-100 hover:bg-green-200 text-green-800 font-medium px-4 py-1 rounded-full">Valider</button>
-                      <button onclick="showModal('refuseModal')"
-                        class="bg-red-100 hover:bg-red-200 text-red-800 font-medium px-4 py-1 rounded-full">Refuser</button>
-                      <a href="./valider-medecin.html"
-                        class="bg-blue-100 hover:bg-blue-200 text-blue-800 font-medium px-4 py-1 rounded-full">Voir</a>
-                    </td>
-                  </tr>
-                  <!-- Ajoute d'autres lignes ici -->
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+  <div class="layout-content-container flex flex-col max-w-4xl w-full">
+    <div class="flex justify-between items-center p-4 border-b border-[#d4dde2]">
+      <h1 class="text-[#101518] tracking-light text-2xl font-bold leading-tight">Détails du médecin</h1>
+      <a href="./validations.html"
+         class="text-sm text-blue-600 font-medium hover:underline">← Retour à la liste</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-gray-50 rounded-xl border border-[#d4dde2]">
+      <div>
+        <p class="text-[#5c778a] text-sm mb-1">Nom complet</p>
+        <p class="text-[#101518] font-medium text-base">Dr. Lucas Martin</p>
+      </div>
+
+      <div>
+        <p class="text-[#5c778a] text-sm mb-1">Adresse e-mail</p>
+        <p class="text-[#101518] font-medium text-base">lucas.martin@example.com</p>
+      </div>
+
+      <div>
+        <p class="text-[#5c778a] text-sm mb-1">Spécialité</p>
+        <p class="text-[#101518] font-medium text-base">Cardiologue</p>
+      </div>
+
+      <div>
+        <p class="text-[#5c778a] text-sm mb-1">Téléphone</p>
+        <p class="text-[#101518] font-medium text-base">+229 99 88 77 66</p>
+      </div>
+
+      <div>
+        <p class="text-[#5c778a] text-sm mb-1">Genre</p>
+        <p class="text-[#101518] font-medium text-base">Masculin</p>
+      </div>
+
+      <div>
+        <p class="text-[#5c778a] text-sm mb-1">Date de naissance</p>
+        <p class="text-[#101518] font-medium text-base">1985-06-15</p>
+      </div>
+
+      <div>
+        <p class="text-[#5c778a] text-sm mb-1">Numéro d'ordre</p>
+        <p class="text-[#101518] font-medium text-base">ORD-987654321</p>
+      </div>
+
+      <div>
+        <p class="text-[#5c778a] text-sm mb-1">Expérience</p>
+        <p class="text-[#101518] font-medium text-base">10 ans</p>
+      </div>
+
+      <div class="md:col-span-2">
+        <p class="text-[#5c778a] text-sm mb-1">Adresse</p>
+        <p class="text-[#101518] font-medium text-base">123 Rue de la Santé, Cotonou</p>
+      </div>
+
+      <div>
+        <p class="text-[#5c778a] text-sm mb-1">Date de la demande</p>
+        <p class="text-[#101518] font-medium text-base">2024-07-25</p>
+      </div>
+
+      <div>
+        <p class="text-[#5c778a] text-sm mb-1">État de l'affiliation</p>
+        <span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">En attente</span>
       </div>
     </div>
 
-    <!-- Modal Valider -->
-    <dialog id="validateModal" class="rounded-lg shadow-lg p-6 max-w-md w-full border border-gray-300">
-      <p class="text-lg font-semibold mb-4">Confirmer la validation ?</p>
-      <div class="flex justify-end gap-3">
-        <button onclick="document.getElementById('validateModal').close()"
-          class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300">Annuler</button>
-        <button class="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700">Confirmer</button>
-      </div>
-    </dialog>
-
-    <!-- Modal Refuser -->
-    <dialog id="refuseModal" class="rounded-lg shadow-lg p-6 max-w-md w-full border border-gray-300">
-      <p class="text-lg font-semibold mb-4">Confirmer le refus ?</p>
-      <div class="flex justify-end gap-3">
-        <button onclick="document.getElementById('refuseModal').close()"
-          class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300">Annuler</button>
-        <button class="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700">Confirmer</button>
-      </div>
-    </dialog>
+    <div class="flex justify-end gap-4 mt-6 px-6">
+      <button onclick="showModal('refuseModal')"
+        class="px-5 py-2 rounded-full bg-red-100 text-red-800 font-medium hover:bg-red-200">
+        Refuser
+      </button>
+      <button onclick="showModal('validateModal')"
+        class="px-5 py-2 rounded-full bg-green-100 text-green-800 font-medium hover:bg-green-200">
+        Valider
+      </button>
+    </div>
   </div>
+    </div>
+
+    <!-- Modal Valider -->
+  <dialog id="validateModal" class="rounded-lg shadow-lg p-6 max-w-md w-full border border-gray-300">
+    <p class="text-lg font-semibold mb-4">Confirmer la validation de ce médecin ?</p>
+    <div class="flex justify-end gap-3">
+      <button onclick="document.getElementById('validateModal').close()"
+        class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300">Annuler</button>
+      <button class="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700">Confirmer</button>
+    </div>
+  </dialog>
+
+  <!-- Modal Refuser -->
+  <dialog id="refuseModal" class="rounded-lg shadow-lg p-6 max-w-md w-full border border-gray-300">
+    <p class="text-lg font-semibold mb-4">Confirmer le refus de ce médecin ?</p>
+    <div class="flex justify-end gap-3">
+      <button onclick="document.getElementById('refuseModal').close()"
+        class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300">Annuler</button>
+      <button class="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700">Confirmer</button>
+    </div>
+  </dialog>
+</div>
 </body>
 
 <script>

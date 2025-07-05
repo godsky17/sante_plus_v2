@@ -31,7 +31,7 @@
           <div class="flex items-center gap-9">
             <a class="text-[#0d151c] text-sm font-medium leading-normal" href="../../index.html">Accueil</a>
             <a class="text-[#0d151c] text-sm font-medium leading-normal" href="../../index.html#about">A propos</a>
-            <a class="text-[#0d151c] text-sm font-medium leading-normal" href="../../index.html">Contact</a>
+            <a class="text-[#0d151c] text-sm font-medium leading-normal" href="../../index.html#contact">Contact</a>
           </div>
           <div class="flex gap-2">
             <a href="../search-medecin.html"
@@ -56,18 +56,19 @@
         </div>
       </header>
       <div class="gap-1 px-6 flex flex-1 justify-center py-5">
+        <!-- SIDEBARE -->
         <div class="layout-content-container flex flex-col w-80">
           <div class="flex h-full min-h-[700px] flex-col justify-between bg-gray-50 p-4">
             <div class="flex flex-col gap-4">
               <h1 class="text-[#101518] text-base font-medium leading-normal">Admin Panel</h1>
               <div class="flex flex-col gap-2">
-                <a href="./dashboard.html">
+                <a href="./dashbord.html">
                   <div class="flex items-center gap-3 px-3 py-2">
-                    <div class="text-[#101518]" data-icon="House" data-size="24px" data-weight="regular">
+                    <div class="text-[#101518]" data-icon="House" data-size="24px" data-weight="fill">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
                         viewBox="0 0 256 256">
                         <path
-                          d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z">
+                          d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z">
                         </path>
                       </svg>
                     </div>
@@ -75,7 +76,7 @@
                   </div>
                 </a>
                 <a href="">
-                  <div class="flex items-center gap-3 px-3 py-2">
+                  <div class="flex items-center gap-3 px-3 py-2 rounded-full bg-[#eaeef1]">
                     <div class="text-[#101518]" data-icon="Users" data-size="24px" data-weight="regular">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
                         viewBox="0 0 256 256">
@@ -84,16 +85,16 @@
                         </path>
                       </svg>
                     </div>
-                    <p class="text-[#101518] text-sm font-medium leading-normal">Utilisateurs</p>
+                    <p class="text-[#101518] text-sm font-medium leading-normal">Rendez-vous</p>
                   </div>
                 </a>
                 <a href="./validations.html">
-                  <div class="flex items-center gap-3 px-3 py-2 rounded-full bg-[#eaeef1]">
-                    <div class="text-[#101518]" data-icon="CheckSquare" data-size="24px" data-weight="fill">
+                  <div class="flex items-center gap-3 px-3 py-2">
+                    <div class="text-[#101518]" data-icon="CheckSquare" data-size="24px" data-weight="regular">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
                         viewBox="0 0 256 256">
                         <path
-                          d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-34.34,77.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z">
+                          d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM224,48V208a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32H208A16,16,0,0,1,224,48ZM208,208V48H48V208H208Z">
                         </path>
                       </svg>
                     </div>
@@ -143,90 +144,154 @@
             </div>
           </div>
         </div>
+
+        <!-- CONTAINER -->
         <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-          <div class="flex flex-wrap justify-between gap-3 p-4">
-            <p class="text-[#101518] tracking-light text-[32px] font-bold leading-tight min-w-72">Tableau de bord</p>
-          </div>
-          <h2 class="text-[#101518] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Aperçu</h2>
-          <div class="flex flex-wrap gap-4 p-4">
-            <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#d4dde2]">
-              <p class="text-[#101518] text-base font-medium leading-normal">Utilisateurs totaux</p>
-              <p class="text-[#101518] tracking-light text-2xl font-bold leading-tight">1,234</p>
-            </div>
-            <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#d4dde2]">
-              <p class="text-[#101518] text-base font-medium leading-normal">Validations en attente</p>
-              <p class="text-[#101518] tracking-light text-2xl font-bold leading-tight">56</p>
-            </div>
-            <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#d4dde2]">
-              <p class="text-[#101518] text-base font-medium leading-normal">Réclamations ouvertes</p>
-              <p class="text-[#101518] tracking-light text-2xl font-bold leading-tight">12</p>
+          <div class="flex justify-between items-center p-4">
+            <h1 class="text-[#101518] tracking-light text-[28px] font-bold">Mes Rendez-vous</h1>
+            <div class="flex gap-2">
+              <button onclick="filterRdv('tous')"
+                class="px-3 py-1 bg-[#e7edf4] rounded-full text-sm font-medium text-[#0d151c]">Tous</button>
+              <button onclick="filterRdv('confirme')"
+                class="px-3 py-1 bg-[#e7edf4] rounded-full text-sm font-medium text-[#0d151c]">Confirmés</button>
+              <button onclick="filterRdv('non_confirme')"
+                class="px-3 py-1 bg-[#e7edf4] rounded-full text-sm font-medium text-[#0d151c]">Non confirmés</button>
             </div>
           </div>
-          <h3 class="text-[#101518] tracking-light text-2xl font-bold leading-tight px-4 text-left pb-2 pt-5">
-            Validations en attente (56)</h3>
-          <div class="px-4 py-6 @container">
-            <div class="overflow-x-auto rounded-xl border border-[#d4dde2] bg-gray-50">
-              <table class="min-w-full">
-                <thead>
-                  <tr class="bg-gray-100 text-sm font-semibold text-[#101518]">
-                    <th class="px-4 py-3 text-left w-[240px]">Utilisateur</th>
-                    <th class="px-4 py-3 text-left w-[120px]">Type</th>
-                    <th class="px-4 py-3 text-left w-[200px]">Date</th>
-                    <th class="px-4 py-3 text-left w-[300px]">Actions</th>
-                  </tr>
-                </thead>
-                <tbody class="text-sm text-[#101518]">
-                  <tr class="border-t border-[#d4dde2]">
-                    <td class="px-4 py-4">Dr. Lucas Martin</td>
-                    <td class="px-4 py-4">
-                      <span class="inline-block bg-[#eaeef1] text-[#101518] px-3 py-1 rounded-full">Médecin</span>
-                    </td>
-                    <td class="px-4 py-4 text-[#5c778a]">2024-07-25</td>
-                    <td class="px-4 py-4 flex gap-2 flex-wrap">
-                      <button onclick="showModal('validateModal')"
-                        class="bg-green-100 hover:bg-green-200 text-green-800 font-medium px-4 py-1 rounded-full">Valider</button>
-                      <button onclick="showModal('refuseModal')"
-                        class="bg-red-100 hover:bg-red-200 text-red-800 font-medium px-4 py-1 rounded-full">Refuser</button>
-                      <a href="./valider-medecin.html"
-                        class="bg-blue-100 hover:bg-blue-200 text-blue-800 font-medium px-4 py-1 rounded-full">Voir</a>
-                    </td>
-                  </tr>
-                  <!-- Ajoute d'autres lignes ici -->
-                </tbody>
-              </table>
+
+          <div class="p-4 space-y-4" id="rdv-list">
+            <!-- Liste des RDV générée dynamiquement -->
+          </div>
+        </div>
+
+        <!-- Modal confirmation/refus -->
+        <div id="modal-validation" class="fixed inset-0 z-50 hidden bg-black/50 flex items-center justify-center">
+          <div class="bg-white rounded-xl p-6 w-full max-w-md">
+            <h2 class="text-lg font-bold text-[#101518] mb-4">Confirmation</h2>
+            <p id="validation-message" class="text-sm text-gray-600 mb-6">Voulez-vous vraiment effectuer cette action ?
+            </p>
+            <div class="flex justify-end gap-2">
+              <button onclick="closeModal('modal-validation')" class="px-3 py-1 bg-gray-200 rounded">Annuler</button>
+              <button id="modal-confirm-btn" class="px-3 py-1 bg-[#0d151c] text-white rounded">Confirmer</button>
             </div>
           </div>
         </div>
+
+        <!-- Modal reprogrammation -->
+        <div id="modal-reprogrammation" class="fixed inset-0 z-50 hidden bg-black/50 flex items-center justify-center">
+          <div class="bg-white rounded-xl p-6 w-full max-w-md">
+            <h2 class="text-lg font-bold text-[#101518] mb-4">Reprogrammer le rendez-vous</h2>
+            <label class="block text-sm text-gray-600 mb-1">Nouvelle date :</label>
+            <input id="new-date" type="date" class="w-full mb-3 border border-gray-300 rounded px-2 py-1" />
+            <label class="block text-sm text-gray-600 mb-1">Heure :</label>
+            <input id="new-time" type="time" class="w-full mb-4 border border-gray-300 rounded px-2 py-1" />
+            <div class="flex justify-end gap-2">
+              <button onclick="closeModal('modal-reprogrammation')"
+                class="px-3 py-1 bg-gray-200 rounded">Annuler</button>
+              <button onclick="submitReprogrammation()"
+                class="px-3 py-1 bg-[#0d151c] text-white rounded">Reprogrammer</button>
+            </div>
+          </div>
+        </div>
+
+
+        <script>
+          const rdvs = [
+            { id: 1, patient: 'Jean Dupont', date: '2025-07-04T10:00:00', statut: 'non_confirme' },
+            { id: 2, patient: 'Sophie Durant', date: '2025-07-04T14:00:00', statut: 'confirme' },
+            { id: 3, patient: 'Ali Ben', date: '2025-07-05T09:30:00', statut: 'non_confirme' },
+            { id: 4, patient: 'Emma Lemoine', date: '2025-07-06T16:00:00', statut: 'confirme' }
+          ];
+
+          let selectedRdvId = null;
+
+          function renderRdvs(filtered) {
+            const container = document.getElementById('rdv-list');
+            container.innerHTML = '';
+
+            let list = rdvs;
+            if (filtered === 'confirme') list = rdvs.filter(r => r.statut === 'confirme');
+            if (filtered === 'non_confirme') list = rdvs.filter(r => r.statut === 'non_confirme');
+
+            if (list.length === 0) {
+              container.innerHTML = '<p class="text-gray-500 text-sm">Aucun rendez-vous trouvé.</p>';
+              return;
+            }
+
+            list.forEach(r => {
+              const d = new Date(r.date);
+              container.innerHTML += `
+        <div class="bg-white border rounded-xl p-4 shadow-sm flex justify-between items-center">
+          <div>
+            <p class="font-medium text-[#0d151c]">${r.patient}</p>
+            <p class="text-sm text-gray-500">${d.toLocaleDateString()} à ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+            <span class="text-xs px-2 py-0.5 rounded-full ${r.statut === 'confirme' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}">${r.statut.replace('_', ' ')}</span>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="openValidationModal(${r.id}, 'confirmer')" class="text-green-600 text-sm">Confirmer</button>
+            <button onclick="openValidationModal(${r.id}, 'refuser')" class="text-red-600 text-sm">Refuser</button>
+            <button onclick="openReprogrammationModal(${r.id})" class="text-blue-600 text-sm">Reprogrammer</button>
+          </div>
+        </div>
+      `;
+            });
+          }
+
+          function filterRdv(status) {
+            renderRdvs(status);
+          }
+
+          function openValidationModal(id, action) {
+            selectedRdvId = id;
+            const message = action === 'confirmer'
+              ? "Voulez-vous confirmer ce rendez-vous ?"
+              : "Voulez-vous refuser ce rendez-vous ?";
+            document.getElementById('validation-message').textContent = message;
+            document.getElementById('modal-confirm-btn').onclick = () => confirmAction(id, action);
+            document.getElementById('modal-validation').classList.remove('hidden');
+          }
+
+          function openReprogrammationModal(id) {
+            selectedRdvId = id;
+            document.getElementById('modal-reprogrammation').classList.remove('hidden');
+          }
+
+          function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+          }
+
+          function confirmAction(id, action) {
+            const rdv = rdvs.find(r => r.id === id);
+            if (rdv) {
+              if (action === 'confirmer') rdv.statut = 'confirme';
+              if (action === 'refuser') rdvs.splice(rdvs.indexOf(rdv), 1);
+            }
+            closeModal('modal-validation');
+            renderRdvs('tous');
+          }
+
+          function submitReprogrammation() {
+            const newDate = document.getElementById('new-date').value;
+            const newTime = document.getElementById('new-time').value;
+            if (newDate && newTime) {
+              const rdv = rdvs.find(r => r.id === selectedRdvId);
+              if (rdv) {
+                rdv.date = `${newDate}T${newTime}`;
+                rdv.statut = 'non_confirme';
+              }
+              closeModal('modal-reprogrammation');
+              renderRdvs('tous');
+            }
+          }
+
+          // Initialisation
+          renderRdvs('tous');
+        </script>
+
+
       </div>
     </div>
-
-    <!-- Modal Valider -->
-    <dialog id="validateModal" class="rounded-lg shadow-lg p-6 max-w-md w-full border border-gray-300">
-      <p class="text-lg font-semibold mb-4">Confirmer la validation ?</p>
-      <div class="flex justify-end gap-3">
-        <button onclick="document.getElementById('validateModal').close()"
-          class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300">Annuler</button>
-        <button class="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700">Confirmer</button>
-      </div>
-    </dialog>
-
-    <!-- Modal Refuser -->
-    <dialog id="refuseModal" class="rounded-lg shadow-lg p-6 max-w-md w-full border border-gray-300">
-      <p class="text-lg font-semibold mb-4">Confirmer le refus ?</p>
-      <div class="flex justify-end gap-3">
-        <button onclick="document.getElementById('refuseModal').close()"
-          class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300">Annuler</button>
-        <button class="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700">Confirmer</button>
-      </div>
-    </dialog>
   </div>
 </body>
-
-<script>
-  function showModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) modal.showModal();
-  }
-</script>
 
 </html>
